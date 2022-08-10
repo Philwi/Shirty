@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe ShirtApiMapAndCreator do
+RSpec.describe Shirtie do
   it 'has a version number' do
-    expect(ShirtApiMapAndCreator::VERSION).not_to be nil
+    expect(Shirtie::VERSION).not_to be nil
   end
 
   it 'does something useful' do

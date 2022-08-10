@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord'
 gem 'dotenv'
+gem 'dry-cli'
 gem 'erb'
 gem 'pg'
 gem 'rake', '~> 13.0'

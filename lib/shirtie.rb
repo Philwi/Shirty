@@ -2,13 +2,15 @@
 
 ENV['ENVIRONMENT'] ||= 'development'
 
-require 'pg'
+require "bundler/setup"
 require 'active_record'
 require 'dotenv'
+require 'dry/cli'
 require 'erb'
+require 'pg'
 require 'yaml'
 
-Dir[File.join(File.expand_path('..', __dir__), 'lib', 'shirt_api_map_and_creator', '**', '*.rb')].sort.each do |file|
+Dir[File.join(File.expand_path('..', __dir__), 'lib', 'shirtie', '**', '*.rb')].sort.each do |file|
   require file
 end
 
@@ -34,7 +36,5 @@ end
 
 ActiveRecord::Base.establish_connection(db_configuration[ENV['ENVIRONMENT']])
 
-module ShirtApiMapAndCreator
-  class Error < StandardError; end
-  # Your code goes here...
+module Shirtie
 end
