@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
-ENV["ENVIRONMENT"] ||= "development"
+ENV['ENVIRONMENT'] ||= 'development'
 
-require "pg"
-require "active_record"
-require "dotenv"
-require "erb"
-require "yaml"
+require 'pg'
+require 'active_record'
+require 'dotenv'
+require 'erb'
+require 'yaml'
 
-Dir[File.join(File.expand_path('..', __dir__), 'lib', 'shirt_api_map_and_creator' , '**', '*.rb')].each { |file| require file }
+Dir[File.join(File.expand_path('..', __dir__), 'lib', 'shirt_api_map_and_creator', '**', '*.rb')].sort.each do |file|
+  require file
+end
 
-Dotenv.load(".env.#{ENV.fetch('ENVIRONMENT')}.local", ".env.#{ENV.fetch('ENVIRONMENT')}", ".env")
+Dotenv.load(".env.#{ENV.fetch('ENVIRONMENT')}.local", ".env.#{ENV.fetch('ENVIRONMENT')}", '.env')
 # Method needed for loading database settings
 def db_configuration
   # The method below returns the path to the file with our configuration

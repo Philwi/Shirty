@@ -6,14 +6,14 @@ Dotenv.load
 
 require 'standalone_migrations'
 
-ENV["SCHEMA"] = File.join(ActiveRecord::Tasks::DatabaseTasks.db_dir, "schema.rb")
+ENV['SCHEMA'] = File.join(ActiveRecord::Tasks::DatabaseTasks.db_dir, 'schema.rb')
 StandaloneMigrations::Tasks.load_tasks
 
-require "rspec/core/rake_task"
+require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:spec)
 
-require "rubocop/rake_task"
+require 'rubocop/rake_task'
 
 RuboCop::RakeTask.new
 
