@@ -6,5 +6,11 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: single_quotes
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Layout/LineLength:
   Max: 120
+
+Style/Documentation:
+  Enabled: false

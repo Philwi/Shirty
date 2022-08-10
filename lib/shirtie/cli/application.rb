@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'dry/cli'
-Dir['./lib/shirtie/cli/*.rb'].sort.each { |f| require f }
-
 module Shirtie
   module Cli
     class Application < Dry::CLI

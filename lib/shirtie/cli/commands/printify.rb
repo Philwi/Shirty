@@ -1,4 +1,3 @@
-
 require 'dry/cli'
 
 module Shirtie
@@ -11,6 +10,7 @@ module Shirtie
 
         def call(*)
           puts 'Printify the data'
+          puts ::Shirtie::App::Models::Word.all
         end
       end
     end

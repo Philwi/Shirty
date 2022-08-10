@@ -1,5 +1,4 @@
 require 'dry/cli'
-require_relative './commands/printify'
 
 module Shirtie
   module Cli

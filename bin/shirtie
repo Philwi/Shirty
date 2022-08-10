@@ -2,6 +2,6 @@
 
 # frozen_string_literal: true
 
-require_relative '../lib/shirtie/cli/application'
+require_relative '../lib/shirtie'
 
-Shirtie::Cli::Application.start
+Shirtie.commands

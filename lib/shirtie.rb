@@ -10,9 +10,9 @@ require 'erb'
 require 'pg'
 require 'yaml'
 
-Dir[File.join(File.expand_path('..', __dir__), 'lib', 'shirtie', '**', '*.rb')].sort.each do |file|
-  require file
-end
+require 'zeitwerk'
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 Dotenv.load(".env.#{ENV.fetch('ENVIRONMENT')}.local", ".env.#{ENV.fetch('ENVIRONMENT')}", '.env')
 # Method needed for loading database settings
@@ -37,4 +37,9 @@ end
 ActiveRecord::Base.establish_connection(db_configuration[ENV['ENVIRONMENT']])
 
 module Shirtie
+  class << self
+    def commands
+      Shirtie::Cli::Application.start
+    end
+  end
 end
