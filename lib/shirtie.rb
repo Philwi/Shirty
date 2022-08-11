@@ -2,7 +2,7 @@
 
 ENV['ENVIRONMENT'] ||= 'development'
 
-require "bundler/setup"
+require 'bundler/setup'
 require 'active_record'
 require 'dotenv'
 require 'dry/cli'

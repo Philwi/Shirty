@@ -2,17 +2,53 @@ name: Ruby
 
 on: [push,pull_request]
 
+env:
+  DATABASE_NAME: "development"
+  DATABASE_USER: "postgres"
+  DATABASE_PASSWORD: "postgres"
+  DATABASE_HOST: "localhost"
+  DATABASE_PORT: "5432"
+  RAILS_ENV: test
+
 jobs:
-  build:
+  rspec:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+    - name: Rspec
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.0
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
     - name: Run the default task
       run: |
-        gem install bundler -v 2.2.3
-        bundle install
-        bundle exec rake
+        bundle exec rspec spec
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Rubocop
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0.0
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Run rubocop
+      run: |
+        bundle exec rubocop
+  database:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Database
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0.0
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Create Database, run all migrations and seed
+      run: |
+        bundle exec rake db:create
+        bundle exec rake db:migrate
+        bundle exec rake db:seed
+
+
