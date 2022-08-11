@@ -8,6 +8,8 @@ gem 'erb'
 gem 'httparty'
 gem 'pg'
 gem 'rake', '~> 13.0'
+gem 'rmagick'
+gem 'shrine', '~> 3.0'
 gem 'standalone_migrations'
 gem 'yaml'
 
@@ -16,6 +18,7 @@ gem 'dry-cli'
 gem 'dry-configurable'
 gem 'dry-container'
 gem 'dry-system'
+gem 'dry-transaction'
 
 group :development do
   gem 'brakeman'

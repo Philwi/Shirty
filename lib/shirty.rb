@@ -2,20 +2,20 @@
 
 ENV['ENVIRONMENT'] ||= 'development'
 
-require 'bundler/setup'
 require 'active_record'
+require 'bundler/setup'
 require 'dotenv'
 require 'dry/cli'
 require 'erb'
 require 'pg'
+require 'pry'
 require 'yaml'
 
 require 'zeitwerk'
 
-# require_relative '../system/container'
-
 loader = Zeitwerk::Loader.for_gem
 loader.push_dir('system')
+loader.push_dir('config')
 loader.setup
 
 Dotenv.load(".env.#{ENV.fetch('ENVIRONMENT')}.local", ".env.#{ENV.fetch('ENVIRONMENT')}", '.env')

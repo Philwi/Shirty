@@ -1,7 +1,7 @@
 module Shirty
   module Cli
     module Commands
-      module Printify
+      module Images
       end
     end
   end
