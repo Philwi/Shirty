@@ -9,7 +9,14 @@ gem 'erb'
 gem 'httparty'
 gem 'pg'
 gem 'rake', '~> 13.0'
-gem 'rspec', '~> 3.0'
-gem 'rubocop', '~> 0.80'
 gem 'standalone_migrations'
 gem 'yaml'
+
+group :development do
+  gem 'brakeman'
+end
+
+group :development, :test do
+  gem 'rspec', '~> 3.0'
+  gem 'rubocop', '~> 0.80'
+end

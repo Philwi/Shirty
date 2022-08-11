@@ -15,20 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Rspec
+    - name: Setup
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.0
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
-    - name: Run the default task
+    - name: Run Rspec
       run: |
         bundle exec rspec spec
+
   rubocop:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Rubocop
+    - name: Setup
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.0
@@ -36,19 +36,15 @@ jobs:
     - name: Run rubocop
       run: |
         bundle exec rubocop
-  database:
+  brakeman:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Database
+    - name: Setup
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.0
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Create Database, run all migrations and seed
+    - name: Run brakeman
       run: |
-        bundle exec rake db:create
-        bundle exec rake db:migrate
-        bundle exec rake db:seed
-
-
+        bundle exec brakeman --force
