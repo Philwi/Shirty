@@ -11,7 +11,11 @@ require 'pg'
 require 'yaml'
 
 require 'zeitwerk'
+
+# require_relative '../system/container'
+
 loader = Zeitwerk::Loader.for_gem
+loader.push_dir('system')
 loader.setup
 
 Dotenv.load(".env.#{ENV.fetch('ENVIRONMENT')}.local", ".env.#{ENV.fetch('ENVIRONMENT')}", '.env')
@@ -36,10 +40,13 @@ end
 
 ActiveRecord::Base.establish_connection(db_configuration[ENV['ENVIRONMENT']])
 
-module Shirtie
+Container.finalize!
+Dependencies = Dry::AutoInject(Container)
+
+module Shirty
   class << self
     def commands
-      Shirtie::Cli::Application.start
+      Shirty::Cli::Application.start
     end
   end
 end

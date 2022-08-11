@@ -1,4 +1,4 @@
-module Shirtie
+module Shirty
   module Http
     class Printify
       private
@@ -7,7 +7,7 @@ module Shirtie
 
       public
 
-      def initialize(resource, http_client: Shirtie::Http)
+      def initialize(resource, http_client: Shirty::Http)
         @resource = resource
         @http_client = http_client
       end

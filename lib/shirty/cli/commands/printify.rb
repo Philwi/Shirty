@@ -1,6 +1,6 @@
 require 'dry/cli'
 
-module Shirtie
+module Shirty
   module Cli
     module Commands
       extend Dry::CLI::Registry
@@ -9,8 +9,6 @@ module Shirtie
         desc 'Printify the data'
 
         def call(*)
-          puts 'Printify the data'
-          puts ::Shirtie::Repository::Word.all.pluck(:name)
           'Printify the data'
         end
       end

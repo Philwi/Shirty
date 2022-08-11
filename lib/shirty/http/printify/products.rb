@@ -1,4 +1,4 @@
-module Shirtie
+module Shirty
   module Http
     module Printify
       module Products
@@ -6,7 +6,7 @@ module Shirtie
 
         class << self
           def create(attributes)
-            Shirtie::Http::Printify.new(RESOURCE).create(params: attributes)
+            Shirty::Http::Printify.new(RESOURCE).create(params: attributes)
           end
         end
       end

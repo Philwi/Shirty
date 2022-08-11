@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-require 'shirtie'
+require 'shirty'
 require 'pry'
+require 'pry-rescue/rspec'
+
+require_relative '../system/container'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

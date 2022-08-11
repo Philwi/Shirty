@@ -1,6 +1,6 @@
 require 'httparty'
 
-module Shirtie
+module Shirty
   module Http
     class << self
       def get(url, headers: {}, params: {})

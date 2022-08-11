@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Shirtie do
+RSpec.describe Shirty do
   it 'has a version number' do
-    expect(Shirtie::VERSION).not_to be nil
+    expect(Shirty::VERSION).not_to be nil
   end
 end

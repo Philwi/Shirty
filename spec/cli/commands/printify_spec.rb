@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Shirtie::Cli::Commands::Printify do
+RSpec.describe Shirty::Cli::Commands::Printify do
   subject { described_class.new }
 
   it 'puts some stupid string' do

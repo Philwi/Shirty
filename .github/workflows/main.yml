@@ -18,7 +18,7 @@ jobs:
     - name: Setup
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.0
+        ruby-version: 3.0.3
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run Rspec
       run: |
@@ -31,7 +31,7 @@ jobs:
     - name: Setup
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.0
+        ruby-version: 3.0.3
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run rubocop
       run: |
@@ -43,7 +43,7 @@ jobs:
     - name: Setup
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0.0
+        ruby-version: 3.0.3
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run brakeman
       run: |

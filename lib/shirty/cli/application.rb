@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'dry/cli'
-module Shirtie
+module Shirty
   module Cli
     class Application < Dry::CLI
       def self.start

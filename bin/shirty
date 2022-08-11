@@ -2,6 +2,6 @@
 
 # frozen_string_literal: true
 
-require_relative '../lib/shirtie'
+require_relative '../lib/shirty'
 
-Shirtie.commands
+Shirty.commands
