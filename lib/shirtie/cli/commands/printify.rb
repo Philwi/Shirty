@@ -10,7 +10,8 @@ module Shirtie
 
         def call(*)
           puts 'Printify the data'
-          puts ::Shirtie::App::Models::Word.all
+          puts ::Shirtie::Repository::Word.all.pluck(:name)
+          'Printify the data'
         end
       end
     end

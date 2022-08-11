@@ -1,4 +1,4 @@
 module Shirtie
-  module App
+  module Repository
   end
 end
