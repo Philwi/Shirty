@@ -1,12 +1,19 @@
 module Shirty
   module Repositories
     class Images
-      include Dependencies['shirty.entities.images']
+      def create_with_attributes(image_path:, file_name:, mime_type:, word:)
+        image = ImageUploader.upload(File.open(image_path, binmode: true), :store)
+        image_entity.new(image: image, file_name: file_name, mime_type: mime_type, word: word).save
+      end
 
-      def create(attributes)
-        images = entities.images.new(attributes)
-        images.save
-        images
+      def all
+        image_entity.all
+      end
+
+      private
+
+      def image_entity
+        Shirty::Entities::Image
       end
     end
   end

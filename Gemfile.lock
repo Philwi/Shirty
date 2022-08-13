@@ -190,6 +190,7 @@ DEPENDENCIES
   pry
   pry-rescue
   pry-stack_explorer
+  rainbow
   rake (~> 13.0)
   rmagick
   rspec (~> 3.0)

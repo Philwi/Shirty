@@ -7,7 +7,7 @@ class CreateImage < ActiveRecord::Migration[7.0]
       t.integer :size
       t.string :mime_type
       t.timestamps
-      t.belongs_to :words, index: true
+      t.belongs_to :word, index: true
     end
   end
 end

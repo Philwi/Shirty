@@ -20,6 +20,8 @@ gem 'dry-container'
 gem 'dry-system'
 gem 'dry-transaction'
 
+gem 'rainbow'
+
 group :development do
   gem 'brakeman'
 end
