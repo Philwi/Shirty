@@ -11,6 +11,9 @@ require 'webmock/rspec'
 
 require_relative '../system/container'
 
+require 'simplecov'
+SimpleCov.start
+
 WebMock.disable_net_connect!(allow_localhost: true)
 
 VCR.configure do |config|
