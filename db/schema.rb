@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_164910) do
 
   create_table "i_hate_everything_shops", force: :cascade do |t|
     t.bigint "word_id"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["word_id"], name: "index_i_hate_everything_shops_on_word_id"

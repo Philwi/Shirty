@@ -21,12 +21,10 @@ module Shirty
 
         private
 
-        VALID_COLORS = [
-          {
-            black: '#000000',
-            white: '#FFFFFF'
-          }
-        ].freeze
+        VALID_COLORS = {
+          black: '#000000',
+          white: '#FFFFFF'
+        }.freeze
 
         def ensure_word(input)
           word = input[:word]
@@ -61,11 +59,19 @@ module Shirty
         end
 
         def color_valid?(color)
-          VALID_COLORS.map(&:keys).flatten.include?(color.to_sym)
+          VALID_COLORS.keys.include?(color.to_sym)
         end
 
         def create_image_from_word(input)
-          Success(input.merge(image: create_image_with_text(word: input[:word], prefix: input[:prefix])))
+          Success(
+            input.merge(
+              image: create_image_with_text(
+                word: input[:word],
+                prefix: input[:prefix],
+                color: input[:color]
+              )
+            )
+          )
         end
 
         def write_image_to_file(input)
@@ -76,7 +82,8 @@ module Shirty
         end
 
         def create_image(input)
-          shopable = shopables.create_with_attributes_for_shop(word: input[:word], shop: input[:shop])
+          shopable =
+            shopables.create_with_attributes_for_shop(word: input[:word], shop: input[:shop], color: input[:color])
 
           result =
             images.create_with_attributes(
@@ -90,16 +97,16 @@ module Shirty
           result ? Success(input) : Failure(:image_not_created)
         end
 
-        def create_image_with_text(word:, prefix:)
+        def create_image_with_text(word:, prefix:, color:)
           image = init_image
           text = Magick::Draw.new
 
           text.annotate(image, 0, 0, 0, 0, image_text(word: word, prefix: prefix)) do
             text.gravity = Magick::CenterGravity
             text.pointsize = 36
-            text.font_family = 'Verdana'
+            text.font_family = 'Oxford Font'
             text.stroke = 'transparent'
-            text.fill = '#000000'
+            text.fill = VALID_COLORS[color.to_sym]
           end
 
           image

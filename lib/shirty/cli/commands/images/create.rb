@@ -10,7 +10,7 @@ module Shirty
           desc 'Creates Images from words'
 
           option :all, default: false, desc: 'Create all images from persisted not already created words'
-          argument :text_color, type: :string, required: true, desc: 'The color of the text'
+          argument :text_color, type: :string, required: false, desc: 'The color of the text'
           argument :shop, type: :string, required: false, desc: 'The shop to create the image for'
 
           def call(text_color: 'black', shop: Shirty::Entities::Shops::IHateEverything, **options)
