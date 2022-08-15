@@ -75,7 +75,7 @@ module Shirty
         end
 
         def write_image_to_file(input)
-          image_path = "tmp/#{input[:word].name}.png"
+          image_path = "tmp/#{file_name(word: input[:word], prefix: input[:prefix], color: input[:color])}"
           input[:image].write(image_path)
           input.merge!({ image_path: image_path })
           Success(input)
@@ -88,13 +88,17 @@ module Shirty
           result =
             images.create_with_attributes(
               image_path: input[:image_path],
-              file_name: "#{input[:word].name}.png",
+              file_name: file_name(word: input[:word], prefix: input[:prefix], color: input[:color]),
               mime_type: 'image/png',
               word: input[:word],
               shopable: shopable
             )
 
           result ? Success(input) : Failure(:image_not_created)
+        end
+
+        def file_name(word:, prefix:, color:)
+          "#{prefix}_#{word.name}_#{color}.png"
         end
 
         def create_image_with_text(word:, prefix:, color:)
@@ -118,7 +122,7 @@ module Shirty
         end
 
         def init_image
-          Magick::Image.new(200, 200) do |canvas|
+          Magick::Image.new(400, 200) do |canvas|
             canvas.background_color = 'none'
           end
         end
