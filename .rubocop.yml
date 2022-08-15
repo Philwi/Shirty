@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - 'db/**/*.rb'
+    - 'vendor/**/*'
+  NewCops: enable
 
 Style/StringLiterals:
   Enabled: true

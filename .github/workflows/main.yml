@@ -48,6 +48,10 @@ jobs:
       with:
         ruby-version: 3.0.3
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        rubocop_version: gemfile
+        reporter: github-pr-check
+        level: error
+        fail_on_error: true
     - name: Run rubocop
       run: |
         bundle exec rubocop
