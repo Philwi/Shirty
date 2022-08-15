@@ -3,15 +3,24 @@ name: Ruby
 on: [push,pull_request]
 
 env:
-  DATABASE_NAME: "development"
-  DATABASE_USER: "postgres"
-  DATABASE_PASSWORD: "postgres"
-  DATABASE_HOST: "localhost"
-  DATABASE_PORT: "5432"
   RAILS_ENV: test
+  DATABASE_NAME: development
+  DATABASE_USER: postgres
+  DATABASE_PASSWORD: postgres
+  DATABASE_HOST: localhost
+  DATABASE_PORT: 5432
 
 jobs:
   rspec:
+    services:
+      postgres:
+        image: postgres:14
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +29,13 @@ jobs:
       with:
         ruby-version: 3.0.3
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Database Setup
+      run: |
+        bundle exec rake db:create
+        bundle exec rake db:migrate
     - name: Run Rspec
+      env:
+        DATABASE_NAME: development_test
       run: |
         bundle exec rspec spec
 
