@@ -104,7 +104,7 @@ module Shirty
           text.annotate(image, 0, 0, 0, 0, image_text(word: word, prefix: prefix)) do
             text.gravity = Magick::CenterGravity
             text.pointsize = 36
-            text.font_family = 'Oxford Font'
+            text.font_family = 'Noto Serif Display'
             text.stroke = 'transparent'
             text.fill = VALID_COLORS[color.to_sym]
           end
