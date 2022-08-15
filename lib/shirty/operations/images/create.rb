@@ -35,7 +35,7 @@ module Shirty
         def ensure_color(input)
           color = input[:color]
 
-          if color_valid?(color)
+          if !color.nil? && color_valid?(color)
             Success(input.merge(color: color))
           else
             Failure(:color_not_valid)
