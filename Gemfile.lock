@@ -36,6 +36,10 @@ GEM
     concurrent-ruby (1.1.10)
     content_disposition (1.0.0)
     crass (1.0.6)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
     dotenv (2.8.1)
@@ -177,6 +181,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   brakeman
+  database_cleaner-active_record
   dotenv
   dry-auto_inject
   dry-cli
