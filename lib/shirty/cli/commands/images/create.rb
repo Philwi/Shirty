@@ -11,9 +11,11 @@ module Shirty
 
           option :all, default: false, desc: 'Create all images from persisted not already created words'
           argument :text_color, type: :string, required: true, desc: 'The color of the text'
+          argument :shop, type: :string, required: false, desc: 'The shop to create the image for'
 
-          def call(text_color: 'black', **options)
+          def call(text_color: 'black', shop: Shirty::Entities::Shops::IHateEverything, **options)
             @text_color = text_color
+            @shop = shop
 
             create_all = Shirty::Helper::FetchBool.new.fetch_bool(hash: options, key: :all, default: false)
             create_all_images_from_persisted_words if create_all
@@ -21,7 +23,7 @@ module Shirty
 
           private
 
-          attr_reader :text_color
+          attr_reader :text_color, :shop
 
           def logger
             @logger ||= RainbowLogger.new
@@ -36,7 +38,8 @@ module Shirty
           end
 
           def create_image_from_word(word)
-            result = ::Shirty::Operations::Images::Create.new.call(word: word, color: text_color)
+            result = ::Shirty::Operations::Images::Create.new.call(word: word, color: text_color, shop: shop)
+
             if result.success?
               logger.call('Image created', color: :green)
             else

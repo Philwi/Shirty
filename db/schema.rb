@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_11_195555) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_15_164910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "i_hate_everything_shops", force: :cascade do |t|
+    t.bigint "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["word_id"], name: "index_i_hate_everything_shops_on_word_id"
+  end
 
   create_table "images", force: :cascade do |t|
     t.string "file_name"
@@ -20,10 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_11_195555) do
     t.integer "width"
     t.integer "size"
     t.string "mime_type"
+    t.string "shopable_type"
+    t.bigint "shopable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "word_id"
     t.text "image_data"
+    t.index ["shopable_type", "shopable_id"], name: "index_images_on_shopable"
     t.index ["word_id"], name: "index_images_on_word_id"
   end
 

@@ -6,6 +6,7 @@ class CreateImage < ActiveRecord::Migration[7.0]
       t.integer :width
       t.integer :size
       t.string :mime_type
+      t.references :shopable, polymorphic: true
       t.timestamps
       t.belongs_to :word, index: true
     end

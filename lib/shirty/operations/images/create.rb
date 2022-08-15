@@ -6,10 +6,15 @@ module Shirty
     module Images
       class Create
         include Dry::Transaction
-        include Dependencies['shirty.repositories.images', 'shirty.repositories.words']
+        include Dependencies[
+          'shirty.repositories.images',
+          'shirty.repositories.words',
+          'shirty.repositories.shops.shopables',
+        ]
 
         step :ensure_word
         step :ensure_color
+        step :ensure_prefix
         step :create_image_from_word
         step :write_image_to_file
         step :create_image
@@ -42,12 +47,25 @@ module Shirty
           end
         end
 
+        def ensure_prefix(input)
+          shop = input[:shop]
+          return Failure(:shop_not_given) if shop.nil?
+
+          prefix = shop.const_get(:SHOP_PREFIX)
+
+          if prefix.nil?
+            Failure(:shop_not_valid)
+          else
+            Success(input.merge(prefix: prefix, shop: shop))
+          end
+        end
+
         def color_valid?(color)
           VALID_COLORS.map(&:keys).flatten.include?(color.to_sym)
         end
 
         def create_image_from_word(input)
-          Success(input.merge(image: create_image_with_text(input[:word])))
+          Success(input.merge(image: create_image_with_text(word: input[:word], prefix: input[:prefix])))
         end
 
         def write_image_to_file(input)
@@ -58,22 +76,25 @@ module Shirty
         end
 
         def create_image(input)
+          shopable = shopables.create_with_attributes_for_shop(word: input[:word], shop: input[:shop])
+
           result =
             images.create_with_attributes(
               image_path: input[:image_path],
               file_name: "#{input[:word].name}.png",
               mime_type: 'image/png',
-              word: input[:word]
+              word: input[:word],
+              shopable: shopable
             )
 
           result ? Success(input) : Failure(:image_not_created)
         end
 
-        def create_image_with_text(word)
+        def create_image_with_text(word:, prefix:)
           image = init_image
           text = Magick::Draw.new
 
-          text.annotate(image, 0, 0, 0, 0, word.name) do
+          text.annotate(image, 0, 0, 0, 0, image_text(word: word, prefix: prefix)) do
             text.gravity = Magick::CenterGravity
             text.pointsize = 36
             text.font_family = 'Verdana'
@@ -82,6 +103,11 @@ module Shirty
           end
 
           image
+        end
+
+        def image_text(word:, prefix:)
+          name = word.name
+          "#{prefix}\n#{name}".upcase
         end
 
         def init_image

@@ -30,4 +30,14 @@ RSpec.describe Shirty::Cli::Commands::Images::Create do
       expect { subject.call(**options) }.to change(Shirty::Entities::Image, :count).by(0)
     end
   end
+
+  context 'with shop' do
+    it 'creates images for word with shop' do
+      options = { all: true, text_color: 'white', shop: ::Shirty::Entities::Shops::IHateEverything }
+
+      expect { subject.call(**options) }.to change(Shirty::Entities::Image, :count).by(1)
+      expect(Shirty::Entities::Image.last.shopable).to be_a(::Shirty::Entities::Shops::IHateEverything)
+      expect(Shirty::Entities::Image.last.shopable).to eq(::Shirty::Entities::Shops::IHateEverything.last)
+    end
+  end
 end
