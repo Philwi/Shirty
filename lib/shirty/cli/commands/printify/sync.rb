@@ -10,6 +10,13 @@ module Shirty
           desc 'syncs everything from printify'
 
           def call(*)
+            sync_all_blueprints
+            sync_all_print_providers
+          end
+
+          private
+
+          def sync_all_blueprints
             result = ::Shirty::Operations::Printify::Blueprints::Sync.new.call
 
             if result.success?
@@ -20,7 +27,16 @@ module Shirty
             end
           end
 
-          private
+          def sync_all_print_providers
+            result = ::Shirty::Operations::Printify::PrintProvider::Sync.new.call
+
+            if result.success?
+              logger.call('Synced', color: :green)
+            else
+              message = "Not synced: #{result.failure}"
+              logger.call(message, color: :red)
+            end
+          end
 
           def logger
             @logger ||= RainbowLogger.new

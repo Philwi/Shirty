@@ -8,7 +8,7 @@ module Shirty
 
         def create(blueprint_attributes)
           blueprint_entity.create(
-            printify_id: blueprint_attributes['printify_id'],
+            printify_id: blueprint_attributes['id'],
             title: blueprint_attributes['title'],
             brand: blueprint_attributes['brand'],
             model: blueprint_attributes['model'],

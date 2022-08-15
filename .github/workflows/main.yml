@@ -44,6 +44,7 @@ jobs:
     - name: Run Rspec
       env:
         DATABASE_NAME: development_test
+        PRINTIFY_API_TOKEN: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjAwOTVlYWNlNmZmZWViMTJjYjk4YTk3ZjUzZjU3NTAzZTYzNDA1MzA3MjZiYzQwYTMzMGRjZjAxMjBiY2Y5NmFjZmM4NGJjNjE2NjM1ZmFhIiwiaWF0IjoxNjYwNTk2NDU5LjQ2MDgxNSwibmJmIjoxNjYwNTk2NDU5LjQ2MDgxNywiZXhwIjoxNjkyMTMyNDU5LjQyNzcxNCwic3ViIjoiMTAwNDI4MzgiLCJzY29wZXMiOlsic2hvcHMucmVhZCIsImNhdGFsb2cucmVhZCIsInByb2R1Y3RzLnJlYWQiLCJ1cGxvYWRzLnJlYWQiLCJwcmludF9wcm92aWRlcnMucmVhZCJdfQ.ArYSb8cqCRkeWPL81SSFyIAc4qI4loupnyH-ZuptCSNoOWgrwhWzyqTDXxtOQ6ey4GVoar8HyK4WX-oSH08'
       run: |
         mkdir tmp
         bundle exec rspec spec
