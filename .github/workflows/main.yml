@@ -21,6 +21,10 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        env:
+          POSTGRES_DB: development_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -29,6 +33,10 @@ jobs:
       with:
         ruby-version: 3.0.3
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: install ghostscript and its fonts
+      run: |
+        sudo apt-get install ghostscript
+        sudo apt-get install fonts-freefont-otf
     - name: Database Setup
       run: |
         bundle exec rake db:create
