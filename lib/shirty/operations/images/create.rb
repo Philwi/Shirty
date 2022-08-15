@@ -82,8 +82,7 @@ module Shirty
         end
 
         def create_image(input)
-          shopable =
-            shopables.create_with_attributes_for_shop(word: input[:word], shop: input[:shop], color: input[:color])
+          shopable = create_shopable(input)
 
           result =
             images.create_with_attributes(
@@ -95,6 +94,10 @@ module Shirty
             )
 
           result ? Success(input) : Failure(:image_not_created)
+        end
+
+        def create_shopable(input)
+          shopables.create_with_attributes_for_shop(word: input[:word], shop: input[:shop], color: input[:color])
         end
 
         def file_name(word:, prefix:, color:)
