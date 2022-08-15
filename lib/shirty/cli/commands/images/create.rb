@@ -29,6 +29,7 @@ module Shirty
             @logger ||= RainbowLogger.new
           end
 
+          # TODO: not created for shop with color and word
           def create_all_images_from_persisted_words
             words = ::Shirty::Repositories::Words.new.not_created_images_from_words
 

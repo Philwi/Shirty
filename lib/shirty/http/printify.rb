@@ -23,7 +23,7 @@ module Shirty
       private
 
       def printify_url
-        'https://printify.me/api/v1'
+        'https://api.printify.com/v1'
       end
 
       def request_url
@@ -31,9 +31,9 @@ module Shirty
       end
 
       def headers
-        api_key = ENV.fetch('PRINTIFY_API_KEY')
+        api_key = ENV.fetch('PRINTIFY_API_TOKEN')
 
-        { 'Authorization' => "Bearer'#{api_key}'" }
+        { 'Authorization' => "Bearer #{api_key}" }
       end
     end
   end

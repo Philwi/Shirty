@@ -6,8 +6,17 @@ require 'shirty'
 require 'pry'
 require 'pry-rescue/rspec'
 require 'database_cleaner/active_record'
+require 'vcr'
+require 'webmock/rspec'
 
 require_relative '../system/container'
+
+WebMock.disable_net_connect!(allow_localhost: true)
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

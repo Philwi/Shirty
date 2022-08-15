@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_164910) do
   create_table "printify_blueprints", force: :cascade do |t|
     t.integer "printify_id"
     t.string "title"
+    t.string "description"
     t.string "brand"
     t.string "model"
     t.string "images", default: [], array: true

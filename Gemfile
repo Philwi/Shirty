@@ -36,4 +36,6 @@ end
 group :test do
   gem 'database_cleaner-active_record'
   gem 'rspec', '~> 3.0'
+  gem 'vcr'
+  gem 'webmock'
 end
