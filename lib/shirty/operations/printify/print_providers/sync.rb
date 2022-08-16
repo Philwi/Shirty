@@ -25,6 +25,7 @@ module Shirty
 
           def get_print_providers_for_blueprints_and_save_them(input)
             blueprints = input[:blueprints]
+            print_providers = []
 
             blueprints.each do |blueprint|
               print_providers = api.all_for_blueprint(blueprint)
@@ -32,11 +33,11 @@ module Shirty
               print_providers.each do |print_provider|
                 next if already_existing_print_provider(print_provider: print_provider, blueprint: blueprint)
 
-                repository.create(print_provider_attributes: print_provider, blueprint: blueprint)
+                print_provides << repository.create(print_provider_attributes: print_provider, blueprint: blueprint)
               end
             end
 
-            Success(input)
+            Success(input.merge(print_providers: print_providers))
           end
 
           def already_existing_print_provider(print_provider:, blueprint:)

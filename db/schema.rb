@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_15_200324) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_16_201352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_200324) do
     t.string "title"
     t.text "options"
     t.string "placeholders", default: [], array: true
+    t.bigint "printify_print_provider_id"
+    t.bigint "printify_blueprint_id"
+    t.text "variants"
+    t.index ["printify_blueprint_id"], name: "index_printify_variants_on_printify_blueprint_id"
+    t.index ["printify_print_provider_id"], name: "index_printify_variants_on_printify_print_provider_id"
   end
 
   create_table "words", force: :cascade do |t|

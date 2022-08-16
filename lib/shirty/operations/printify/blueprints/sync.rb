@@ -29,10 +29,16 @@ module Shirty
           def save(input)
             blueprints = input[:blueprints]
             blueprints.each do |blueprint|
+              next if blueprint_already_exists?(blueprint)
+
               repository.create(blueprint)
             end
 
             Success(input)
+          end
+
+          def blueprint_already_exists?(blueprint)
+            repository.find_by_printful_id(printful_id: blueprint['id']).present?
           end
         end
       end

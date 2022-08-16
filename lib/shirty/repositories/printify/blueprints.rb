@@ -17,6 +17,10 @@ module Shirty
           )
         end
 
+        def find_by_printful_id(printful_id:)
+          blueprint_entity.find_by(printful_id: printful_id)
+        end
+
         private
 
         def blueprint_entity
