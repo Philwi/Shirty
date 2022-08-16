@@ -12,6 +12,8 @@ require 'rspec/mocks/standalone'
 
 require_relative '../system/container'
 
+Dir['./spec/factories/**/*.rb'].each { |file| require file }
+
 require 'simplecov'
 SimpleCov.start
 

@@ -20,7 +20,7 @@ module Shirty
             result = ::Shirty::Operations::Printify::Blueprints::Sync.new.call
 
             if result.success?
-              logger.call('Synced', color: :green)
+              logger.call("Synced Blueprints: #{result.inspect}", color: :green)
             else
               message = "Not synced: #{result.failure}"
               logger.call(message, color: :red)
@@ -28,10 +28,10 @@ module Shirty
           end
 
           def sync_all_print_providers
-            result = ::Shirty::Operations::Printify::PrintProvider::Sync.new.call
+            result = ::Shirty::Operations::Printify::PrintProviders::Sync.new.call
 
             if result.success?
-              logger.call('Synced', color: :green)
+              logger.call("Synced Print Providers: #{result.inspect}", color: :green)
             else
               message = "Not synced: #{result.failure}"
               logger.call(message, color: :red)
