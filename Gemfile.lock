@@ -214,6 +214,7 @@ DEPENDENCIES
   rake (~> 13.0)
   rmagick
   rspec (~> 3.0)
+  rspec-mocks
   rubocop (~> 0.80)
   shrine (~> 3.0)
   simplecov

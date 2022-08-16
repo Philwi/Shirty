@@ -8,6 +8,7 @@ require 'pry-rescue/rspec'
 require 'database_cleaner/active_record'
 require 'vcr'
 require 'webmock/rspec'
+require 'rspec/mocks/standalone'
 
 require_relative '../system/container'
 
