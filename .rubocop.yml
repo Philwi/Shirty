@@ -23,3 +23,13 @@ Style/Documentation:
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context']
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/MissingSuper:
+  Enabled: false
+

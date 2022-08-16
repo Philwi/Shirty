@@ -9,7 +9,9 @@ RSpec.describe Shirty::Cli::Commands::Printify::Sync do
     stub_api_requests
 
     expect { subject.call }
-      .to change(Shirty::Entities::Printify::Blueprint, :count).by(1)
+      .to change(
+        Shirty::Entities::Printify::Blueprint, :count
+      ).by(1)
       .and change(Shirty::Entities::Printify::PrintProvider, :count).by(2)
   end
 

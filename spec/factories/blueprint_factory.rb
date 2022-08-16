@@ -1,9 +1,6 @@
 class BlueprintFactory < AbstractFactory
   attr_accessor :blueprint
 
-  def initialize
-  end
-
   def create_blueprint(blueprint_attributes: default_blueprint_attributes)
     self.blueprint = ::Shirty::Repositories::Printify::Blueprints.new.create(blueprint_attributes)
   end
