@@ -38,7 +38,7 @@ module Shirty
           end
 
           def blueprint_already_exists?(blueprint)
-            repository.find_by_printful_id(printful_id: blueprint['id']).present?
+            repository.find_by_printify_id(printify_id: blueprint['id']).present?
           end
         end
       end

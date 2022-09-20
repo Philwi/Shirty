@@ -33,7 +33,7 @@ module Shirty
               print_providers.each do |print_provider|
                 next if already_existing_print_provider(print_provider: print_provider, blueprint: blueprint)
 
-                print_provides << repository.create(print_provider_attributes: print_provider, blueprint: blueprint)
+                print_providers << repository.create(print_provider_attributes: print_provider, blueprint: blueprint)
               end
             end
 

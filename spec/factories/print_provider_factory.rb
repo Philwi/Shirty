@@ -23,23 +23,23 @@ class PrintProviderFactory < AbstractFactory
 
   def default_print_provider_attributes
     {
-      printify_id: '1',
-      name: 'Amazon',
-      url: 'https:\/\/www.amazon.com\/dp\/B07JZQQQQQ'
+      'printify_id' => '1',
+      'name' => 'Amazon',
+      'url' => 'https:\/\/www.amazon.com\/dp\/B07JZQQQQQ'
     }
   end
 
   def default_response_print_provider_attributes
     [
       {
-        'id': 1,
-        'name': 'Amazon',
-        'url': 'https:\/\/www.amazon.com\/dp\/B07JZQQQQQ'
+        'id' => 1,
+        'name' => 'Amazon',
+        'url' => 'https:\/\/www.amazon.com\/dp\/B07JZQQQQQ'
       },
       {
-        'id': 2,
-        'name': 'Ebay',
-        'url': 'https:\/\/www.ebay.com\/itm\/Kids-Regular-Fit-Tee-\/170785670291'
+        'id' => 2,
+        'name' => 'Ebay',
+        'url' => 'https:\/\/www.ebay.com\/itm\/Kids-Regular-Fit-Tee-\/170785670291'
       }
     ]
   end

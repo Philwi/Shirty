@@ -13,24 +13,24 @@ class BlueprintFactory < AbstractFactory
 
   def default_blueprint_attributes
     {
-      printify_id: '3',
-      title: 'Blueprint 1',
-      brand: 'Brand 1',
-      model: 'Model 1',
-      images: ['image1.jpg', 'image2.jpg'],
-      description: 'Description 1'
+      'printify_id' => '3',
+      'title' => 'Blueprint 1',
+      'brand' => 'Brand 1',
+      'model' => 'Model 1',
+      'images' => ['image1.jpg', 'image2.jpg'],
+      'description' => 'Description 1'
     }
   end
 
   def default_response_blueprint_attributes
     [
       {
-        'id': 3,
-        'title': 'Kids Regular Fit Tee',
-        'description': 'blabla',
-        'brand': 'Delta',
-        'model': '11736',
-        'images': [
+        'id' => 3,
+        'title' => 'Kids Regular Fit Tee',
+        'description' => 'blabla',
+        'brand' => 'Delta',
+        'model' => '11736',
+        'images' => [
           'https:\/\/images.printify.com\/5853fe7dce46f30f8327f5cd',
           'https:\/\/images.printify.com\/5c487ee2a342bc9b8b2fc4d2'
         ]

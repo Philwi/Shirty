@@ -13,6 +13,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Sync do
         Shirty::Entities::Printify::Blueprint, :count
       ).by(1)
       .and change(Shirty::Entities::Printify::PrintProvider, :count).by(2)
+      .and change(Shirty::Entities::Printify::Variant, :count).by(1)
   end
 
   private
@@ -22,5 +23,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Sync do
     blueprint_factory.stub_blueprint_request
     print_provider_factory = PrintProviderFactory.new(blueprint: blueprint_factory.blueprint)
     print_provider_factory.stub_print_provider_request
+    variant_factory = VariantFactory.new(blueprint: blueprint_factory, print_provider: print_provider_factory)
+    variant_factory.stub_variant_request
   end
 end
