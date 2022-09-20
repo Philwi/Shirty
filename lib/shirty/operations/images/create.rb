@@ -93,7 +93,7 @@ module Shirty
               shopable: shopable
             )
 
-          result ? Success(input) : Failure(:image_not_created)
+          result ? Success(result) : Failure(:image_not_created)
         end
 
         def create_shopable(input)

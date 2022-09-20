@@ -1,13 +1,11 @@
 module Shirty
   module Http
-    module Printify
-      module Images
-        RESOURCE = 'images'.freeze
+    class Printify
+      class Images
+        RESOURCE = 'uploads/images.json'.freeze
 
-        class << self
-          def create(attributes)
-            Shirty::Http::Printify.new(RESOURCE).create(params: attributes)
-          end
+        def create(attributes)
+          Shirty::Http::Printify.new(RESOURCE).create(body: attributes)
         end
       end
     end

@@ -3,19 +3,22 @@ module Shirty
     module Shops
       class Shopables
         def create_with_attributes_for_shop(word:, shop:, color:)
-          check_uniqueness_of_word_and_color_for_shop(word: word, color: color, shop: shop)
+          if entry_already_exists_for(word: word, color: color, shop: shop)
+            return find_shop_by(word: word, color: color, shop: shop)
+          end
 
           shop.create(word: word, color: color)
         end
 
         private
 
-        def check_uniqueness_of_word_and_color_for_shop(word:, color:, shop:)
-          shop.find_by(word: word, color: color).tap do |shopable|
-            if shopable
-              raise 'ShopableAlreadyExistsError', "Shop: #{shop} already exists for word: #{word} and color: #{color}"
-            end
-          end
+        def entry_already_exists_for(word:, color:, shop:)
+          result = find_shop_by(word: word, color: color, shop: shop)
+          result.present?
+        end
+
+        def find_shop_by(word:, color:, shop:)
+          shop.find_by(word: word, color: color)
         end
       end
     end

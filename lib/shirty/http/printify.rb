@@ -17,7 +17,7 @@ module Shirty
       end
 
       def create(body: {})
-        http_client.post(request_url, headers: headers, body: body)
+        http_client.post(request_url, headers: headers, body: body.to_json)
       end
 
       private
