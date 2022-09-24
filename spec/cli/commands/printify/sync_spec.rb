@@ -13,7 +13,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Sync do
         Shirty::Entities::Printify::Blueprint, :count
       ).by(1)
       .and change(Shirty::Entities::Printify::PrintProvider, :count).by(2)
-      .and change(Shirty::Entities::Printify::Variant, :count).by(1)
+                                                                    .and change(Shirty::Entities::Printify::Variant, :count).by(1)
   end
 
   private

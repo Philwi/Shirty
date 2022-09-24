@@ -18,8 +18,7 @@ module Shirty
 
           private
 
-          def foo(input)
-          end
+          def foo(input); end
         end
       end
     end

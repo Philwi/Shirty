@@ -32,13 +32,13 @@ class ImageFactory < AbstractFactory
   def success_attributes
     {
       'id' => '632f4ab1dfd69200015adce8',
-     'file_name' => 'I Hate_Foo_black.png',
-     'height' => 200,
-     'width' => 400,
-     'size' => 4455,
-     'mime_type' => 'image/png',
-     'preview_url' => 'https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/10042838/7778643c-41e0-44f2-a19c-9b70d6b259d4',
-     'upload_time' => '2022-09-24 18:21:37'
+      'file_name' => 'I Hate_Foo_black.png',
+      'height' => 200,
+      'width' => 400,
+      'size' => 4455,
+      'mime_type' => 'image/png',
+      'preview_url' => 'https://pfy-prod-image-storage.s3.us-east-2.amazonaws.com/10042838/7778643c-41e0-44f2-a19c-9b70d6b259d4',
+      'upload_time' => '2022-09-24 18:21:37'
     }
   end
 end
