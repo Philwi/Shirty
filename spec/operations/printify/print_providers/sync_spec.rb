@@ -10,7 +10,6 @@ RSpec.describe Shirty::Operations::Printify::PrintProviders::Sync do
       blueprint_factory = BlueprintFactory.new
       blueprint_factory.create_blueprint
       blueprint_factory.stub_blueprint_request
-
       PrintProviderFactory.new.stub_print_provider_request
     end
 

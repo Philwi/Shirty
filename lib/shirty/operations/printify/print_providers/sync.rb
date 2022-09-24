@@ -28,9 +28,9 @@ module Shirty
             print_providers = []
 
             blueprints.each do |blueprint|
-              print_providers = api.all_for_blueprint(blueprint)
+              print_providers_for_blueprint = api.all_for_blueprint(blueprint)
 
-              print_providers.each do |print_provider|
+              print_providers_for_blueprint.each do |print_provider|
                 next if already_existing_print_provider(print_provider: print_provider, blueprint: blueprint)
 
                 print_providers << repository.create(print_provider_attributes: print_provider, blueprint: blueprint)
