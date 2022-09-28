@@ -20,6 +20,10 @@ module Shirty
         image_entity.find_by(id: id)
       end
 
+      def find_by(file_name:)
+        image_entity.find_by(file_name: file_name)
+      end
+
       private
 
       def image_entity

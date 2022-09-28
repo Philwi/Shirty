@@ -7,6 +7,10 @@ module Shirty
         def create(attributes)
           Shirty::Http::Printify.new(RESOURCE).create(body: attributes)
         end
+
+        def all
+          Shirty::Http::Printify.new(RESOURCE).index
+        end
       end
     end
   end

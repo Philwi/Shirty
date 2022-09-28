@@ -7,10 +7,9 @@ RSpec.describe Shirty::Operations::Printify::PrintProviders::Sync do
 
   context 'when syncing' do
     before do
-      blueprint_factory = BlueprintFactory.new
-      blueprint_factory.create_blueprint
-      blueprint_factory.stub_blueprint_request
-      PrintProviderFactory.new.stub_print_provider_request
+      Printify::BlueprintFactory.new.create
+      Printify::PrintProviderFactory.new.create
+      ::Shirty::Entities::Printify::PrintProvider.destroy_all
     end
 
     it 'syncs all print providers for blueprints from printify' do

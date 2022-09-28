@@ -7,6 +7,7 @@ module Shirty
 
       belongs_to :word, class_name: 'Shirty::Entities::Word'
       belongs_to :shopable, polymorphic: true
+      has_one :printify_images, class_name: 'Shirty::Entities::Printify::Image'
     end
   end
 end

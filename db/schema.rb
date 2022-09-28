@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_16_201352) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_28_173127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_201352) do
     t.integer "size"
     t.string "mime_type"
     t.datetime "upload_time"
+    t.bigint "images_id"
+    t.index ["images_id"], name: "index_printify_images_on_images_id"
   end
 
   create_table "printify_print_providers", force: :cascade do |t|
@@ -84,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_201352) do
     t.string "print_details", default: [], array: true
     t.boolean "is_locked", default: true
     t.string "sales_channel_properties", default: [], array: true
+    t.bigint "printify_images_id"
+    t.index ["printify_images_id"], name: "index_printify_products_on_printify_images_id"
   end
 
   create_table "printify_variants", force: :cascade do |t|

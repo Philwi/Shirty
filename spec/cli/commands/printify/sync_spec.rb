@@ -6,24 +6,27 @@ RSpec.describe Shirty::Cli::Commands::Printify::Sync do
   subject { described_class.new }
 
   it 'creates images for words' do
-    stub_api_requests
+    create_state
 
     expect { subject.call }
       .to change(
         Shirty::Entities::Printify::Blueprint, :count
       ).by(1)
-      .and change(Shirty::Entities::Printify::PrintProvider, :count).by(2)
-                                                                    .and change(Shirty::Entities::Printify::Variant, :count).by(1)
+      .and change(
+        Shirty::Entities::Printify::PrintProvider, :count
+      ).by(2)
+      .and change(
+        Shirty::Entities::Printify::Variant, :count
+      ).by(1)
   end
 
   private
 
-  def stub_api_requests
-    blueprint_factory = BlueprintFactory.new
-    blueprint_factory.stub_blueprint_request
-    print_provider_factory = PrintProviderFactory.new(blueprint: blueprint_factory.blueprint)
-    print_provider_factory.stub_print_provider_request
-    variant_factory = VariantFactory.new(blueprint: blueprint_factory, print_provider: print_provider_factory)
-    variant_factory.stub_variant_request
+  def create_state
+    blueprint = Printify::BlueprintFactory.new.create
+    print_provider = Printify::PrintProviderFactory.new(blueprint: blueprint).create
+    Printify::VariantFactory.new(blueprint: blueprint, print_provider: print_provider).create
+    # to test the syncing. otherwhise it would, because it is already existing
+    Shirty::Entities::Printify::Variant.destroy_all
   end
 end

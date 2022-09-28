@@ -6,6 +6,7 @@ module Shirty
       module Images
         extend Dry::CLI::Registry
 
+        # TODO: change to printify namespace
         class Upload < Dry::CLI::Command
           desc 'Upload images to Printify'
 
@@ -26,7 +27,7 @@ module Shirty
           def upload_all_images_to_printify
             images = Shirty::Repositories::Images.new.all
             syncable_images(images).each do |image|
-              result = Shirty::Operations::Images::Upload.new.call(id: image.id)
+              result = Shirty::Operations::Printify::Images::Upload.new.call(id: image.id)
               if result.success?
                 logger.call("Image uploaded: #{result.inspect}", color: :green)
               else

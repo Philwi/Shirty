@@ -13,6 +13,8 @@ class ImageFactory < AbstractFactory
   end
 
   def create
+    stub_upload_request_for_success
+
     @image =
       ::Shirty::Operations::Images::Create.new.call(
         word: word,
@@ -21,13 +23,13 @@ class ImageFactory < AbstractFactory
       ).success
   end
 
+  private
+
   def stub_upload_request_for_success
     allow_any_instance_of(
       Shirty::Http::Printify::Images
     ).to receive(:create).and_return(success_attributes)
   end
-
-  private
 
   def success_attributes
     {
