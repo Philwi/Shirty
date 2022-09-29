@@ -38,7 +38,7 @@ def db_configuration
   YAML.safe_load(db_configuration_result, aliases: true)
 end
 
-ActiveRecord::Base.establish_connection(db_configuration[ENV['ENVIRONMENT']])
+ActiveRecord::Base.establish_connection(db_configuration[ENV.fetch('ENVIRONMENT', nil)])
 
 Container.finalize!
 Dependencies = Dry::AutoInject(Container)

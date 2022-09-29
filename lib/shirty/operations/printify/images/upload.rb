@@ -9,7 +9,8 @@ module Shirty
           include Dependencies[
             repository: 'shirty.repositories.printify.images',
             disk_image_repository: 'shirty.repositories.images',
-            api: 'shirty.http.printify.images'
+            api: 'shirty.http.printify.images',
+            image_mapper: 'shirty.mapper.printify.image'
           ]
 
           step :get_image_by_id
@@ -54,29 +55,21 @@ module Shirty
           end
 
           def create_internal_representation(input)
-            properties_from_printful = input[:properties_from_printify]
-
-            # TODO: Representer?
-            attributes = {
-              printify_id: properties_from_printful['id'],
-              file_name: properties_from_printful['file_name'],
-              height: properties_from_printful['height'],
-              width: properties_from_printful['width'],
-              size: properties_from_printful['size'],
-              mime_type: properties_from_printful['mime_type'],
-              upload_time: properties_from_printful['upload_time']
-            }
-
-            printify_image = repository.create(attributes: attributes)
             image = input[:image]
-            image.printify_images = printify_image
+            image.printify_images = printify_image(properties_from_printify: input[:properties_from_printify])
+            image_created = image.printify_images.present?
             image.save
 
-            if printify_image.present?
+            if image_created
               Success(image)
             else
               Failure(:printify_image_could_not_be_created)
             end
+          end
+
+          def printify_image(properties_from_printify:)
+            mapped_attributes = image_mapper.parse(properties_from_printify)
+            repository.create(attributes: mapped_attributes)
           end
         end
       end

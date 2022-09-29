@@ -16,6 +16,7 @@ module Shirty
             desc: 'What to sync. Options: all, blueprints, print_providers, variants'
           )
 
+          # rubocop:disable Metrics/MethodLength
           def call(type: 'all', **)
             case type
             when 'all'
@@ -33,6 +34,7 @@ module Shirty
               logger.call(message, color: :red)
             end
           end
+          # rubocop:enable Metrics/MethodLength
 
           private
 

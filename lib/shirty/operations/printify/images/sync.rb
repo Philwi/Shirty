@@ -9,7 +9,8 @@ module Shirty
           include Dependencies[
             api: 'shirty.http.printify.images',
             repository: 'shirty.repositories.printify.images',
-            disk_image_repository: 'shirty.repositories.images'
+            disk_image_repository: 'shirty.repositories.images',
+            image_mapper: 'shirty.mapper.printify.image'
           ]
 
           step :sync_from_printify
@@ -48,17 +49,8 @@ module Shirty
 
           def persist(input)
             input[:persistable_images].each do |image|
-              attributes = {
-                printify_id: image['id'],
-                file_name: image['file_name'],
-                height: image['height'],
-                width: image['width'],
-                size: image['size'],
-                mime_type: image['mime_type'],
-                upload_time: image['upload_time']
-              }
-
-              printify_image = repository.create(attributes: attributes)
+              mapped_attributes = image_mapper.parse(image)
+              printify_image = repository.create(attributes: mapped_attributes)
 
               disk_image = disk_image_repository.find_by(file_name: image['file_name'])
               disk_image.printify_image = printify_image

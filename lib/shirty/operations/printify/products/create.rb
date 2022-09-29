@@ -43,9 +43,7 @@ module Shirty
             results = []
 
             input[:products].each do |product|
-              result = api.create(product)
-              results << result
-              create_printify_product(result)
+              results << create_image_and_return_api_result(product)
             end
 
             if results_ok?(results)
@@ -53,6 +51,12 @@ module Shirty
             else
               Failure(:products_could_not_be_created, { results: bad_results(results) })
             end
+          end
+
+          def create_image_and_return_api_result(product)
+            result = api.create(product)
+            create_printify_product(result)
+            result
           end
 
           def create_printify_product(attributes_from_printify)

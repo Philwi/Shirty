@@ -85,7 +85,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
       ],
       'variants' => [
         {
-          'id' => 45740,
+          'id' => 45_740,
           'sku' => '866375988',
           'cost' => 134,
           'price' => 400,
@@ -100,7 +100,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
           ]
         },
         {
-          'id' => 45742,
+          'id' => 45_742,
           'sku' => '866375989',
           'cost' => 149,
           'price' => 400,
@@ -115,7 +115,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
           ]
         },
         {
-          'id' => 45744,
+          'id' => 45_744,
           'sku' => '866375990',
           'cost' => 187,
           'price' => 400,
@@ -130,7 +130,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
           ]
         },
         {
-          'id' => 45746,
+          'id' => 45_746,
           'sku' => '866375991',
           'cost' => 216,
           'price' => 400,
@@ -149,7 +149,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2187/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => true
@@ -157,7 +157,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2188/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -165,7 +165,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2189/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -173,7 +173,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2190/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -181,7 +181,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2191/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -189,7 +189,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2192/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -197,7 +197,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2193/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -205,7 +205,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2194/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -213,7 +213,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2195/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -221,7 +221,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2196/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -229,7 +229,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2197/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -237,7 +237,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2198/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -245,7 +245,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2199/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -253,7 +253,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2200/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -261,7 +261,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2201/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -269,7 +269,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2202/product.jpg',
           'variant_ids' => [
-            45740
+            45_740
           ],
           'position' => 'front',
           'is_default' => false
@@ -277,7 +277,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2187/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -285,7 +285,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2188/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -293,7 +293,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2189/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => true
@@ -301,7 +301,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2190/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -309,7 +309,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2191/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -317,7 +317,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2192/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -325,7 +325,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2193/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -333,7 +333,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2194/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -341,7 +341,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2195/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -349,7 +349,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2196/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -357,7 +357,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2197/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -365,7 +365,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2198/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -373,7 +373,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2199/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -381,7 +381,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2200/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -389,7 +389,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2201/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -397,7 +397,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45742/2202/product.jpg',
           'variant_ids' => [
-            45742
+            45_742
           ],
           'position' => 'front',
           'is_default' => false
@@ -405,7 +405,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2187/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -413,7 +413,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2188/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -421,7 +421,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2189/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -429,7 +429,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2190/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => true
@@ -437,7 +437,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2191/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -445,7 +445,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2192/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -453,7 +453,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2193/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -461,7 +461,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2194/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -469,7 +469,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2195/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -477,7 +477,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2196/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -485,7 +485,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2197/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -493,7 +493,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2198/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -501,7 +501,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2199/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -509,7 +509,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2200/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -517,7 +517,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2201/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -525,7 +525,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45744/2202/product.jpg',
           'variant_ids' => [
-            45744
+            45_744
           ],
           'position' => 'front',
           'is_default' => false
@@ -533,7 +533,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2187/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -541,7 +541,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2188/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -549,7 +549,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2189/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -557,7 +557,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2190/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -565,7 +565,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2191/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => true
@@ -573,7 +573,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2192/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -581,7 +581,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2193/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -589,7 +589,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2194/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -597,7 +597,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2195/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -605,7 +605,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2196/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -613,7 +613,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2197/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -621,7 +621,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2198/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -629,7 +629,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2199/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -637,7 +637,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2200/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -645,7 +645,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2201/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
@@ -653,7 +653,7 @@ RSpec.describe Shirty::Cli::Commands::Printify::Create do
         {
           'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45746/2202/product.jpg',
           'variant_ids' => [
-            45746
+            45_746
           ],
           'position' => 'front',
           'is_default' => false
