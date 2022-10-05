@@ -35,7 +35,6 @@ module Shirty
           def create_variants(blueprints)
             variants = []
 
-            # FIXME: ActiveRecord stuff outside of Repositories/Entites Oo
             blueprints.includes(:print_providers).each do |blueprint|
               blueprint.print_providers.each do |print_provider|
                 variant = get_variants_for(blueprint: blueprint, print_provider: print_provider)

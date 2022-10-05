@@ -4,7 +4,7 @@
 
 Integrate printify and be able to create products based on images.
 These images were generated from specific words and a Shop Prefix.
-Create printify shops based on configured shops.
+Create printify shops based on configured shops as Plugins.
 
 ## Version 2
 
