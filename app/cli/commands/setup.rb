@@ -62,7 +62,7 @@ module Cli
       end
 
       def sync_printify_stuff
-        ::Cli::Commands::Printify::Sync.new.call
+        ::Cli::Commands::Printify::External::Sync.new.call
       end
 
       def upload_images_to_printify

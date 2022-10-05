@@ -5,7 +5,7 @@ module Cli
     extend Dry::CLI::Registry
 
     register 'setup', ::Cli::Commands::Setup
+    register 'create_products', ::Cli::Commands::Printify::Products::Create
     # TODO: runs the whole lifecycle if necessary -> image create, upload, product creation
-    register 'create_products' ::Cli::Commands::Printify::Products::Create
   end
 end

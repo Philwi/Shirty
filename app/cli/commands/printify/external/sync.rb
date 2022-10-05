@@ -3,6 +3,7 @@ require 'dry/cli'
 module Cli
   module Commands
     module Printify
+      module External
       extend Dry::CLI::Registry
 
       class Sync < Dry::CLI::Command
@@ -73,6 +74,7 @@ module Cli
             logger.call(message, color: :red)
           end
         end
+      end
       end
     end
   end
