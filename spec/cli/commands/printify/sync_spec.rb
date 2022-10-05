@@ -9,9 +9,9 @@ RSpec.describe ::Cli::Commands::Printify::Sync do
     create_state
 
     expect { subject.call }
-      .to change( Shirty::Entities::Printify::Blueprint, :count).by(1)
-      .and change(Shirty::Entities::Printify::PrintProvider, :count).by(2)
-      .and change(Shirty::Entities::Printify::Variant, :count).by(1)
+      .to change(::Shirty::Repositories::Printify::Blueprints.new.all, :count).by(1)
+      .and change(::Shirty::Repositories::Printify::PrintProviders.new.all, :count).by(2)
+      .and change(::Shirty::Repositories::Printify::Variants.new.all, :count).by(1)
   end
 
   private
@@ -21,6 +21,6 @@ RSpec.describe ::Cli::Commands::Printify::Sync do
     print_provider = Printify::PrintProviderFactory.new(blueprint: blueprint).create
     Printify::VariantFactory.new(blueprint: blueprint, print_provider: print_provider).create
     # to test the syncing. otherwhise it would, because it is already existing
-    Shirty::Entities::Printify::Variant.destroy_all
+    Shirty::Repositories::Printify::Variants.new.delete_all_variants
   end
 end

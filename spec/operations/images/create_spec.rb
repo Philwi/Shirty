@@ -4,10 +4,10 @@ require 'spec_helper'
 
 RSpec.describe Shirty::Operations::Images::Create do
   before do
-    ::Shirty::Entities::Word.create(name: 'test')
+    ::Shirty::Repositories::Words.new.create_word_by_name('test')
   end
 
-  let(:word) { ::Shirty::Entities::Word.last }
+  let(:word) { ::Shirty::Repositories::Words.new.last_created_word }
   let(:shop) { ::Shirty::Entities::Shops::IHateEverything }
   let(:color) { 'white' }
 

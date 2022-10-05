@@ -2,6 +2,10 @@ module Shirty
   module Repositories
     module Printify
       class Variants
+        def all
+          variant_entity.all
+        end
+
         def find_by_printify_id(printify_id:)
           variant_entity.find_by(printify_id: printify_id)
         end
@@ -20,6 +24,10 @@ module Shirty
             printify_blueprint: blueprint,
             printify_print_provider: print_provider
           )
+        end
+
+        def delete_all_variants
+          variant_entity.destroy_all
         end
 
         private

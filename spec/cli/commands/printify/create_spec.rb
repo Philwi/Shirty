@@ -13,7 +13,7 @@ RSpec.describe ::Cli::Commands::Printify::Create do
     stub_product_create_requests
 
     expect { subject.call }.to change(
-      Shirty::Entities::Printify::Product, :count
+      Shirty::Repositories::Printify::Products.new.all, :count
     ).by(2)
   end
 

@@ -19,6 +19,10 @@ module Shirty
           print_provider_entity.find_by(printify_id: printify_id, printify_blueprint_id: blueprint.id)
         end
 
+        def delete_all_providers
+          print_provider_entity.destroy_all
+        end
+
         private
 
         def print_provider_entity

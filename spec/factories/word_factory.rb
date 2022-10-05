@@ -12,6 +12,6 @@ class WordFactory < AbstractFactory
   end
 
   def create
-    @word = ::Shirty::Entities::Word.create(name: name)
+    @word = ::Shirty::Repositories::Words.new.create_word_by_name(name)
   end
 end

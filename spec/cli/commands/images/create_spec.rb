@@ -6,20 +6,20 @@ RSpec.describe ::Cli::Commands::Images::Create do
   subject { described_class.new }
 
   before do
-    ::Shirty::Entities::Word.create(name: 'test')
+    ::Shirty::Repositories::Words.new.create_word_by_name('test')
   end
 
   it 'creates images for words' do
     options = { all: true }
 
-    expect { subject.call(**options) }.to change(Shirty::Entities::Image, :count).by(1)
+    expect { subject.call(**options) }.to change(image_repository.all, :count).by(1)
   end
 
   context 'with a text color' do
     it 'creates images for word with color' do
       options = { all: true, text_color: 'white' }
 
-      expect { subject.call(**options) }.to change(Shirty::Entities::Image, :count).by(1)
+      expect { subject.call(**options) }.to change(image_repository.all, :count).by(1)
     end
   end
 
@@ -27,17 +27,24 @@ RSpec.describe ::Cli::Commands::Images::Create do
     it 'creates images for word with black color' do
       options = { all: true, text_color: 'red' }
 
-      expect { subject.call(**options) }.to change(Shirty::Entities::Image, :count).by(0)
+      expect { subject.call(**options) }.to change(image_repository.all, :count).by(0)
     end
   end
 
   context 'with shop' do
     it 'creates images for word with shop' do
+      # TODO: shop should not be a entity?
       options = { all: true, text_color: 'white', shop: ::Shirty::Entities::Shops::IHateEverything }
 
-      expect { subject.call(**options) }.to change(Shirty::Entities::Image, :count).by(1)
+      expect { subject.call(**options) }.to change(image_repository.all, :count).by(1)
       expect(Shirty::Entities::Image.last.shopable).to be_a(::Shirty::Entities::Shops::IHateEverything)
       expect(Shirty::Entities::Image.last.shopable).to eq(::Shirty::Entities::Shops::IHateEverything.last)
     end
+  end
+
+  private
+
+  def image_repository
+    Shirty::Repositories::Images.new
   end
 end

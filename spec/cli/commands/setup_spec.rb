@@ -13,10 +13,10 @@ RSpec.describe ::Cli::Commands::Setup do
     expect { subject.call }
       .to change(::Shirty::Repositories::Words.new.all_words, :count).by(1)
       .and change(::Shirty::Repositories::Images.new.all, :count).by(1)
-      .and change(::Shirty::Entities::Printify::Blueprint, :count).by(1)
-      .and change(::Shirty::Entities::Printify::PrintProvider, :count).by(2)
-      .and change(::Shirty::Entities::Printify::Variant, :count).by(1)
-      .and change(::Shirty::Entities::Printify::Image, :count).by(2) # Word Factory creates another word
+      .and change(::Shirty::Repositories::Printify::Blueprints.new.all, :count).by(1)
+      .and change(::Shirty::Repositories::Printify::PrintProviders.new.all, :count).by(2)
+      .and change(::Shirty::Repositories::Printify::Variants.new.all, :count).by(1)
+      .and change(::Shirty::Repositories::Printify::Images.new.all, :count).by(2) # Word Factory creates another word
   end
 
   private
@@ -26,7 +26,7 @@ RSpec.describe ::Cli::Commands::Setup do
     print_provider = Printify::PrintProviderFactory.new(blueprint: blueprint).create
     Printify::VariantFactory.new(blueprint: blueprint, print_provider: print_provider).create
     # to test the syncing. otherwhise it would, because it is already existing
-    Shirty::Entities::Printify::Variant.destroy_all
+    Shirty::Repositories::Printify::Variants.new.delete_all_variants
     Printify::ImageFactory.new.create
   end
 end

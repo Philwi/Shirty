@@ -17,6 +17,10 @@ module Shirty
         word_entity.all.where.not(id: word_ids)
       end
 
+      def last_created_word
+        word_entity.last
+      end
+
       private
 
       def word_entity

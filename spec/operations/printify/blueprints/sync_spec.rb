@@ -9,7 +9,7 @@ RSpec.describe Shirty::Operations::Printify::Blueprints::Sync do
     it 'syncs all blueprints from printify' do
       Printify::BlueprintFactory.new.create
 
-      expect { subject.call }.to change(::Shirty::Entities::Printify::Blueprint, :count).by(1)
+      expect { subject.call }.to change(::Shirty::Repositories::Printify::Blueprints.new.all, :count).by(1)
     end
   end
 end
