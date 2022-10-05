@@ -6,6 +6,10 @@ module Cli
       extend Dry::CLI::Registry
 
       class Create < Dry::CLI::Command
+        include Dependencies[
+          logger: 'rainbow_logger'
+        ]
+
         desc 'Creates Images from words'
 
         option :all, default: false, desc: 'Create all images from persisted not already created words'
@@ -23,10 +27,6 @@ module Cli
         private
 
         attr_reader :text_color, :shop
-
-        def logger
-          @logger ||= RainbowLogger.new
-        end
 
         def create_all_images_from_persisted_words
           words = ::Shirty::Repositories::Words.new.not_created_images_from_words

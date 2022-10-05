@@ -6,6 +6,10 @@ module Cli
       extend Dry::CLI::Registry
 
       class Sync < Dry::CLI::Command
+        include Dependencies[
+          logger: 'rainbow_logger'
+        ]
+
         desc 'syncs everything from printify'
 
         argument(
@@ -68,10 +72,6 @@ module Cli
             message = "Not synced: #{result.failure}"
             logger.call(message, color: :red)
           end
-        end
-
-        def logger
-          @logger ||= RainbowLogger.new
         end
       end
     end

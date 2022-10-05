@@ -9,15 +9,9 @@ RSpec.describe ::Cli::Commands::Printify::Sync do
     create_state
 
     expect { subject.call }
-      .to change(
-        Shirty::Entities::Printify::Blueprint, :count
-      ).by(1)
-      .and change(
-        Shirty::Entities::Printify::PrintProvider, :count
-      ).by(2)
-      .and change(
-        Shirty::Entities::Printify::Variant, :count
-      ).by(1)
+      .to change( Shirty::Entities::Printify::Blueprint, :count).by(1)
+      .and change(Shirty::Entities::Printify::PrintProvider, :count).by(2)
+      .and change(Shirty::Entities::Printify::Variant, :count).by(1)
   end
 
   private

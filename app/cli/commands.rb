@@ -5,5 +5,7 @@ module Cli
     extend Dry::CLI::Registry
 
     register 'setup', ::Cli::Commands::Setup
+    # TODO: register 'add_word' # only add a new word to the database
+    # TODO: register 'create_products' # runs the whole lifecycle -> image create, upload, product creation
   end
 end

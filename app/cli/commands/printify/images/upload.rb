@@ -7,6 +7,10 @@ module Cli
         extend Dry::CLI::Registry
 
         class Upload < Dry::CLI::Command
+          include Dependencies[
+            logger: 'rainbow_logger'
+          ]
+
           desc 'Upload images to Printify'
 
           option :all, default: false, desc: 'Upload all images not already uploaded images'
@@ -38,10 +42,6 @@ module Cli
 
           def syncable_images(images)
             images.select { |image| image.height.blank? }
-          end
-
-          def logger
-            @logger ||= RainbowLogger.new
           end
         end
       end
