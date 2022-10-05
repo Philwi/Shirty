@@ -30,7 +30,6 @@ module Shirty
           word = input[:word]
 
           return Failure(:word_not_given) if word.nil?
-          return Failure(:word_not_valid_class) unless word.is_a?(::Shirty::Entities::Word)
 
           Success(input)
         end
