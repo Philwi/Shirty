@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Shirty::Cli::Commands::Printify::Create do
+RSpec.describe ::Cli::Commands::Printify::Create do
   subject { described_class.new }
 
   before do

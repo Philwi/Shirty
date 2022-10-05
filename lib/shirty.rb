@@ -14,6 +14,7 @@ require 'yaml'
 require 'zeitwerk'
 
 loader = Zeitwerk::Loader.for_gem
+loader.push_dir('app')
 loader.push_dir('system')
 loader.push_dir('config')
 loader.setup
@@ -46,7 +47,7 @@ Dependencies = Dry::AutoInject(Container)
 module Shirty
   class << self
     def commands
-      Shirty::Cli::Application.start
+      ::Cli::Application.start
     end
   end
 end

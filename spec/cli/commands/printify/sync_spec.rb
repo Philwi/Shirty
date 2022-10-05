@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Shirty::Cli::Commands::Printify::Sync do
+RSpec.describe ::Cli::Commands::Printify::Sync do
   subject { described_class.new }
 
   it 'creates images for words' do
