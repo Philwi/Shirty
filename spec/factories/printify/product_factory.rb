@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 module Printify
   class ProductFactory < ::AbstractFactory
     private
@@ -68,7 +69,7 @@ module Printify
         ],
         'variants' => [
           {
-            'id' => 45740,
+            'id' => 45_740,
             'sku' => '866375988',
             'cost' => 134,
             'price' => 400,
@@ -83,7 +84,7 @@ module Printify
             ]
           },
           {
-            'id' => 45742,
+            'id' => 45_742,
             'sku' => '866375989',
             'cost' => 149,
             'price' => 400,
@@ -102,7 +103,7 @@ module Printify
           {
             'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2187/product.jpg',
             'variant_ids' => [
-              45740
+              45_740
             ],
             'position' => 'front',
             'is_default' => true
@@ -110,7 +111,7 @@ module Printify
           {
             'src' => 'https://images.printify.com/mockup/5d39b411749d0a000f30e0f4/45740/2188/product.jpg',
             'variant_ids' => [
-              45740
+              45_740
             ],
             'position' => 'front',
             'is_default' => false
@@ -127,10 +128,10 @@ module Printify
         'print_areas' => [
           {
             'variant_ids' => [
-              45740,
-              45742,
-              45744,
-              45746
+              45_740,
+              45_742,
+              45_744,
+              45_746
             ],
             'placeholders' => [
               {
@@ -158,3 +159,4 @@ module Printify
     end
   end
 end
+# rubocop:enable Metrics/ClassLength

@@ -9,9 +9,12 @@ RSpec.describe ::Cli::Commands::Printify::External::Sync do
     create_state
 
     expect { subject.call }
-      .to change(::Shirty::Repositories::Printify::Blueprints.new.all, :count).by(1)
-      .and change(::Shirty::Repositories::Printify::PrintProviders.new.all, :count).by(2)
-      .and change(::Shirty::Repositories::Printify::Variants.new.all, :count).by(1)
+      .to change(::Shirty::Repositories::Printify::Blueprints.new.all, :count)
+      .by(1)
+      .and change(::Shirty::Repositories::Printify::PrintProviders.new.all, :count)
+      .by(2)
+      .and change(::Shirty::Repositories::Printify::Variants.new.all, :count)
+      .by(1)
   end
 
   private

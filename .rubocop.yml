@@ -2,11 +2,16 @@ AllCops:
   Exclude:
     - 'db/**/*.rb'
     - 'vendor/**/*'
+    - 'tmp'
+    - 'coverage'
   NewCops: enable
 
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
+
+Style/AsciiComments:
+  Enabled: false
 
 Style/StringLiteralsInInterpolation:
   Enabled: true

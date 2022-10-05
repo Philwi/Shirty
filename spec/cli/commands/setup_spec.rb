@@ -11,12 +11,18 @@ RSpec.describe ::Cli::Commands::Setup do
 
   it 'creates all words, images and uploads images and sync printify stuff' do
     expect { subject.call }
-      .to change(::Shirty::Repositories::Words.new.all_words, :count).by(1)
-      .and change(::Shirty::Repositories::Images.new.all, :count).by(1)
-      .and change(::Shirty::Repositories::Printify::Blueprints.new.all, :count).by(1)
-      .and change(::Shirty::Repositories::Printify::PrintProviders.new.all, :count).by(2)
-      .and change(::Shirty::Repositories::Printify::Variants.new.all, :count).by(1)
-      .and change(::Shirty::Repositories::Printify::Images.new.all, :count).by(2) # Word Factory creates another word
+      .to change(::Shirty::Repositories::Words.new.all_words, :count)
+      .by(1)
+      .and change(::Shirty::Repositories::Images.new.all, :count)
+      .by(1)
+      .and change(::Shirty::Repositories::Printify::Blueprints.new.all, :count)
+      .by(1)
+      .and change(::Shirty::Repositories::Printify::PrintProviders.new.all, :count)
+      .by(2)
+      .and change(::Shirty::Repositories::Printify::Variants.new.all, :count)
+      .by(1)
+      .and change(::Shirty::Repositories::Printify::Images.new.all, :count)
+      .by(2) # Word Factory creates another word
   end
 
   private
