@@ -19,6 +19,10 @@ module Shirty
           image_entity.where.not(id: used_image_ids)
         end
 
+        def delete_all_images
+          image_entity.delete_all
+        end
+
         private
 
         def image_entity

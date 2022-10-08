@@ -23,14 +23,14 @@ module Shirty
             images = api.all
 
             if images.present?
-              Success(images: images)
+              Success(images: images['data'])
             else
               Failure(:images_not_found)
             end
           end
 
           def exclude_duplicates(input)
-            images_to_persist = persistable_images(input[:image])
+            images_to_persist = persistable_images(input[:images])
 
             if images_to_persist.present?
               Success(persistable_images: images_to_persist)
@@ -53,9 +53,14 @@ module Shirty
               printify_image = repository.create(attributes: mapped_attributes)
 
               disk_image = disk_image_repository.find_by(file_name: image['file_name'])
+              disk_image = create_disk_image(image['file_name']) if disk_image.blank?
               disk_image.printify_image = printify_image
               disk_image.save
             end
+          end
+
+          def create_disk_image(file_name)
+            # call interactor with file name to create disk image
           end
         end
       end
