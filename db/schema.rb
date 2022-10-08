@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_173127) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_08_204056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "i_hate_everything_shops", force: :cascade do |t|
-    t.bigint "word_id"
-    t.string "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["word_id"], name: "index_i_hate_everything_shops_on_word_id"
-  end
 
   create_table "images", force: :cascade do |t|
     t.string "file_name"
@@ -28,13 +20,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_173127) do
     t.integer "width"
     t.integer "size"
     t.string "mime_type"
-    t.string "shopable_type"
-    t.bigint "shopable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "word_id"
     t.text "image_data"
-    t.index ["shopable_type", "shopable_id"], name: "index_images_on_shopable"
+    t.bigint "shop_id"
+    t.index ["shop_id"], name: "index_images_on_shop_id"
     t.index ["word_id"], name: "index_images_on_word_id"
   end
 
@@ -55,8 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_173127) do
     t.integer "size"
     t.string "mime_type"
     t.datetime "upload_time"
-    t.bigint "images_id"
-    t.index ["images_id"], name: "index_printify_images_on_images_id"
+    t.bigint "image_id"
+    t.index ["image_id"], name: "index_printify_images_on_image_id"
   end
 
   create_table "printify_print_providers", force: :cascade do |t|
@@ -100,6 +91,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_173127) do
     t.text "variants"
     t.index ["printify_blueprint_id"], name: "index_printify_variants_on_printify_blueprint_id"
     t.index ["printify_print_provider_id"], name: "index_printify_variants_on_printify_print_provider_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name"
+    t.string "prefix"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "words", force: :cascade do |t|

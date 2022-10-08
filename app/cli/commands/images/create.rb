@@ -7,7 +7,8 @@ module Cli
 
       class Create < Dry::CLI::Command
         include Dependencies[
-          logger: 'rainbow_logger'
+          logger: 'rainbow_logger',
+          shop_repository: 'shirty.repositories.shops'
         ]
 
         desc 'Creates Images from words'
@@ -16,7 +17,7 @@ module Cli
         argument :text_color, type: :string, required: false, desc: 'The color of the text'
         argument :shop, type: :string, required: false, desc: 'The shop to create the image for'
 
-        def call(text_color: 'black', shop: Shirty::Entities::Shops::IHateEverything, **options)
+        def call(text_color: 'black', shop: shop_repository.last_created_shop, **options)
           @text_color = text_color
           @shop = shop
 

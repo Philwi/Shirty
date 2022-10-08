@@ -8,7 +8,7 @@ RSpec.describe Shirty::Interactors::Images::ImageService do
   end
 
   let(:word) { ::Shirty::Repositories::Words.new.last_created_word }
-  let(:shop) { ::Shirty::Entities::Shops::IHateEverything }
+  let(:shop) { ::ShopFactory.new.create }
   let(:color) { 'white' }
 
   context 'when calling create from word' do

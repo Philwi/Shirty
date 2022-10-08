@@ -7,6 +7,7 @@ RSpec.describe ::Cli::Commands::Images::Create do
 
   before do
     ::Shirty::Repositories::Words.new.create_word_by_name('test')
+    ::ShopFactory.new.create
   end
 
   it 'creates images for words' do
@@ -34,11 +35,10 @@ RSpec.describe ::Cli::Commands::Images::Create do
   context 'with shop' do
     it 'creates images for word with shop' do
       # TODO: shop should not be a entity?
-      options = { all: true, text_color: 'white', shop: ::Shirty::Entities::Shops::IHateEverything }
+      options = { all: true, text_color: 'white', shop: ShopFactory.new.create }
 
       expect { subject.call(**options) }.to change(image_repository.all, :count).by(1)
-      expect(Shirty::Entities::Image.last.shopable).to be_a(::Shirty::Entities::Shops::IHateEverything)
-      expect(Shirty::Entities::Image.last.shopable).to eq(::Shirty::Entities::Shops::IHateEverything.last)
+      expect(Shirty::Entities::Image.last.shop).to eq(::Shirty::Repositories::Shops.new.last_created_shop)
     end
   end
 

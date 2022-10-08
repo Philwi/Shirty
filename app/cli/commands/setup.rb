@@ -6,13 +6,15 @@ module Cli
 
     class Setup < Dry::CLI::Command
       include Dependencies[
-        logger: 'rainbow_logger'
+        logger: 'rainbow_logger',
+        shop_repository: 'shirty.repositories.shops'
       ]
 
       desc 'Setup everything - creates words from list, creates images from words, sync all important printify stuff'
 
-      def initialize(logger:, word_list: default_word_list)
+      def initialize(logger:, shop_repository:, word_list: default_word_list)
         @logger = logger
+        @shop_repository = shop_repository
         @word_list = word_list
       end
 
@@ -25,7 +27,7 @@ module Cli
 
       private
 
-      attr_reader :word_list, :logger
+      attr_reader :word_list, :shop_repository, :logger
 
       def default_word_list
         words = []
@@ -54,11 +56,13 @@ module Cli
       end
 
       def create_internal_images
-        ::Cli::Commands::Images::Create.new.call(
-          text_color: 'black',
-          shop: Shirty::Entities::Shops::IHateEverything,
-          **{ all: true }
-        )
+        shop_repository.all_shops.each do |shop|
+          ::Cli::Commands::Images::Create.new.call(
+            text_color: 'black',
+            shop: shop,
+            **{ all: true }
+          )
+        end
       end
 
       def sync_printify_stuff

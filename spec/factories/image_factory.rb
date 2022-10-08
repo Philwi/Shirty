@@ -7,7 +7,7 @@ class ImageFactory < AbstractFactory
 
   attr_reader :image
 
-  def initialize(word: WordFactory.new, shop: ::Shirty::Entities::Shops::IHateEverything)
+  def initialize(word: WordFactory.new, shop: ::ShopFactory.new.create)
     @word = word.create
     @shop = shop
   end

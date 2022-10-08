@@ -6,7 +6,7 @@ module Shirty
       # serialize :image_data, Hash
 
       belongs_to :word, class_name: 'Shirty::Entities::Word'
-      belongs_to :shopable, polymorphic: true
+      belongs_to :shop, class_name: 'Shirty::Entities::Shop'
       has_one :printify_images, class_name: 'Shirty::Entities::Printify::Image'
     end
   end

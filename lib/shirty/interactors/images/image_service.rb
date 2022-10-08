@@ -9,7 +9,7 @@ module Shirty
         include Dependencies[
           'shirty.repositories.images',
           'shirty.repositories.words',
-          'shirty.repositories.shops.shopables',
+          'shirty.repositories.shops',
         ]
 
         def create_from_word(word:, color:, shop:)
@@ -63,7 +63,7 @@ module Shirty
         end
 
         def prefix_for_shop
-          shop.const_get(:SHOP_PREFIX)
+          shop.prefix
         end
 
         def draw_image
@@ -93,22 +93,16 @@ module Shirty
         end
 
         def create_image
-          shopable = create_shopable
-
           result =
             images.create_with_attributes(
               image_path: image_path,
               file_name: file_name,
               mime_type: 'image/png',
               word: word,
-              shopable: shopable
+              shop: shop
             )
 
           result ? Success(result) : Failure(:image_not_created)
-        end
-
-        def create_shopable
-          shopables.create_with_attributes_for_shop(word: word, shop: shop, color: color)
         end
 
         def image_path
