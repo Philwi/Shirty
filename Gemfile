@@ -35,6 +35,8 @@ end
 
 group :test do
   gem 'database_cleaner-active_record'
+  gem 'debug'
+  gem 'rdbg'
   gem 'rspec', '~> 3.0'
   gem 'rspec-mocks'
   gem 'simplecov', require: false
