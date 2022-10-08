@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Shirty::Operations::Printify::PrintProviders::Sync do
+RSpec.describe Shirty::Interactors::Printify::PrintProviders::Sync do
   subject { described_class.new }
 
   context 'when syncing' do

@@ -12,7 +12,7 @@ module Printify
 
     def create
       stub_upload
-      Shirty::Operations::Printify::Images::Upload.new.call(id: image.id)
+      Shirty::Interactors::Printify::Images::Upload.new.call(id: image.id)
     end
 
     private

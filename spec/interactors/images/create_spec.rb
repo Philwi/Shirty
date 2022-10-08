@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Shirty::Operations::Images::Create do
+RSpec.describe Shirty::Interactors::Images::Create do
   before do
     ::Shirty::Repositories::Words.new.create_word_by_name('test')
   end

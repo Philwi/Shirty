@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Shirty::Operations::Printify::Blueprints::Sync do
+RSpec.describe Shirty::Interactors::Printify::Blueprints::Sync do
   subject { described_class.new }
 
   context 'when syncing' do

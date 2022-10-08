@@ -27,7 +27,7 @@ module Cli
           end
 
           def create_product(image)
-            result = ::Shirty::Operations::Printify::Products::Create.new.call(image: image)
+            result = ::Shirty::Interactors::Printify::Products::Create.new.call(image: image)
 
             if result.success?
               logger.call("Created Product: #{result.inspect}", color: :green)

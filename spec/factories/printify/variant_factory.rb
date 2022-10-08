@@ -17,7 +17,7 @@ module Printify
 
     def create(variant_response_attributes: default_response_variant_attributes)
       stub_variant_request(variant_response_attributes: variant_response_attributes)
-      ::Shirty::Operations::Printify::Variants::Sync.new.call
+      ::Shirty::Interactors::Printify::Variants::Sync.new.call
     end
 
     private

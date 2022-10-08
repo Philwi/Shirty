@@ -16,7 +16,7 @@ class ImageFactory < AbstractFactory
     stub_upload_request_for_success
 
     @image =
-      ::Shirty::Operations::Images::Create.new.call(
+      ::Shirty::Interactors::Images::Create.new.call(
         word: word,
         color: 'black',
         shop: shop

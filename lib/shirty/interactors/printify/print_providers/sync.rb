@@ -1,7 +1,7 @@
 require 'dry/transaction'
 
 module Shirty
-  module Operations
+  module Interactors
     module Printify
       module PrintProviders
         class Sync

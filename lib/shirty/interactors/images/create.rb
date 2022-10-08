@@ -2,7 +2,7 @@ require 'dry/transaction'
 require 'rmagick'
 
 module Shirty
-  module Operations
+  module Interactors
     module Images
       class Create
         include Dry::Transaction

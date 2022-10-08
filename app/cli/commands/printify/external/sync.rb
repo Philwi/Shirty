@@ -43,7 +43,7 @@ module Cli
           private
 
           def sync_all_blueprints
-            result = ::Shirty::Operations::Printify::Blueprints::Sync.new.call
+            result = ::Shirty::Interactors::Printify::Blueprints::Sync.new.call
 
             if result.success?
               logger.call("Synced Blueprints: #{result.inspect}", color: :green)
@@ -54,7 +54,7 @@ module Cli
           end
 
           def sync_all_print_providers
-            result = ::Shirty::Operations::Printify::PrintProviders::Sync.new.call
+            result = ::Shirty::Interactors::Printify::PrintProviders::Sync.new.call
 
             if result.success?
               logger.call("Synced Print Providers: #{result.inspect}", color: :green)
@@ -65,7 +65,7 @@ module Cli
           end
 
           def sync_all_variants
-            result = ::Shirty::Operations::Printify::Variants::Sync.new.call
+            result = ::Shirty::Interactors::Printify::Variants::Sync.new.call
 
             if result.success?
               logger.call("Synced Variants: #{result.inspect}", color: :green)
