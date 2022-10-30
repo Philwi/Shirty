@@ -21,6 +21,10 @@ module Shirty
         word_entity.last
       end
 
+      def find_by_name(name)
+        word_entity.find_by(name: name)
+      end
+
       private
 
       def word_entity

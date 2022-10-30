@@ -1,4 +1,3 @@
-
 module Shirty
   module Entities
     class Shop < ActiveRecord::Base

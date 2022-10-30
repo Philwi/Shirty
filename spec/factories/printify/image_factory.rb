@@ -51,8 +51,8 @@ module Printify
             'id' => '5e16d66791287a0006e522b2',
             'file_name' => 'png-images-logo-1.jpg',
             'height' => 5979,
-            'width' => 17045,
-            'size' => 1138575,
+            'width' => 17_045,
+            'size' => 1_138_575,
             'mime_type' => 'image/png',
             'preview_url' => 'https://example.com/image-storage/uuid1',
             'upload_time' => '2020-01-09 07:29:43'
@@ -62,7 +62,7 @@ module Printify
             'file_name' => 'png-images-logo-2.jpg',
             'height' => 360,
             'width' => 360,
-            'size' => 19589,
+            'size' => 19_589,
             'mime_type' => 'image/jpeg',
             'preview_url' => 'https://example.com/image-storage/uuid2',
             'upload_time' => '2019-12-02 13:04:54'

@@ -24,14 +24,15 @@ module Shirty
           create_image
         end
 
+        # TODO: delegete from file and from word creation to own class
         def create_from_file_name(file_name)
           @shop = shop_from_file_name(file_name)
           @word = word_from_file_name(file_name)
           @color = color_from_file_name(file_name)
 
-          return Failure(:word_not_given) if word.blank?
+          return Failure(:word_not_valid) if word.blank?
           return Failure(:color_not_valid) unless color_valid?
-          return Failure(:shop_not_valid) if prefix_for_shop.blank?
+          return Failure(:shop_not_valid) if shop.blank? || prefix_for_shop.blank?
 
           create_image
         end
@@ -46,16 +47,18 @@ module Shirty
         attr_reader :word, :color, :shop
 
         def shop_from_file_name(file_name)
-          shop_name = file_name.split('_').first
-          # TODO: we have to refactor shop into own entity
+          shop_prefix = file_name.split('_').first
+          shops.find_by_prefix(shop_prefix)
         end
 
         def word_from_file_name(file_name)
-          file_name.split('_').second
+          word_name = file_name.split('_').second
+          words.find_by_name(word_name)
         end
 
         def color_from_file_name(file_name)
-          file_name.split('_').third
+          image_extension = '.png'
+          file_name.split('_').third.sub(image_extension, '')
         end
 
         def color_valid?

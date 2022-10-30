@@ -57,13 +57,32 @@ RSpec.describe Shirty::Interactors::Images::ImageService do
     end
   end
 
-  # context 'when create image from file name' do
-  #   subject { ::Shirty::Interactors::Images::ImageService.new }
+  context 'when create image from file name' do
+    subject { ::Shirty::Interactors::Images::ImageService.new }
 
-  #   it 'creates image' do
-  #     expect { subject.create_from_file_name('I Hate_wurst_black.png') }.to change { image_repository.all.count }.by(1)
-  #   end
-  # end
+    context 'when valid filename' do
+      before do
+        ShopFactory.new.create
+        WordFactory.new(name: 'wurst').create
+      end
+
+      it 'creates image' do
+        expect { subject.create_from_file_name('I Hate_wurst_black.png') }
+          .to change { image_repository.all.count }.by(1)
+      end
+    end
+
+    context 'when invalid filename' do
+      it 'does not have a vaild shop prefix' do
+        WordFactory.new(name: 'wurst').create
+        expect(subject.create_from_file_name('I Hate_wurst_black.png').failure).to be :shop_not_valid
+      end
+
+      it 'does not have a valid color' do
+        expect(subject.create_from_file_name('I Hate_wurst_orange.png').failure).to be :word_not_valid
+      end
+    end
+  end
 
   private
 
