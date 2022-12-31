@@ -18,7 +18,7 @@ module Shirty
         end
 
         def find_by_printify_id(printify_id:)
-          blueprint_entity.find_by(printify_id: printify_id)
+          blueprint_entity.find_by(printify_id:)
         end
 
         private

@@ -39,7 +39,7 @@ module Cli
 
         def create_image_from_word(word)
           result =
-            ::Shirty::Interactors::Images::ImageService.new.create_from_word(word: word, color: text_color, shop: shop)
+            ::Shirty::Interactors::Images::ImageService.new.create_from_word(word:, color: text_color, shop:)
 
           if result.success?
             logger.call('Image created', color: :green)

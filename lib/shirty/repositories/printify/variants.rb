@@ -7,11 +7,11 @@ module Shirty
         end
 
         def find_by_printify_id(printify_id:)
-          variant_entity.find_by(printify_id: printify_id)
+          variant_entity.find_by(printify_id:)
         end
 
         def find_by(blueprint_id:, print_provider_id:)
-          variant_entity.find_by(blueprint_id: blueprint_id, print_provider_id: print_provider_id)
+          variant_entity.find_by(blueprint_id:, print_provider_id:)
         end
 
         def create(variant_attributes:, blueprint:, print_provider:)

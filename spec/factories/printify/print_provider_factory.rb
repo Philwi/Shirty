@@ -12,7 +12,7 @@ module Printify
     end
 
     def create(response_print_provider_attributes: default_response_print_provider_attributes)
-      stub_print_provider_request(response_print_provider_attributes: response_print_provider_attributes)
+      stub_print_provider_request(response_print_provider_attributes:)
       ::Shirty::Interactors::Printify::PrintProviders::Sync.new.call
     end
 

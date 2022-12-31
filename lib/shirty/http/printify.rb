@@ -13,11 +13,11 @@ module Shirty
       end
 
       def index(params: {})
-        http_client.get(request_url, headers: headers, params: params)
+        http_client.get(request_url, headers:, params:)
       end
 
       def create(body: {})
-        http_client.post(request_url, headers: headers, body: body.to_json)
+        http_client.post(request_url, headers:, body: body.to_json)
       end
 
       private

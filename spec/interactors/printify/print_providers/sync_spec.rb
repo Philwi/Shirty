@@ -19,7 +19,7 @@ RSpec.describe Shirty::Interactors::Printify::PrintProviders::Sync do
     private
 
     def print_provider_repository
-      ::Shirty::Repositories::Printify::PrintProviders.new
+      Shirty::Repositories::Printify::PrintProviders.new
     end
   end
 end

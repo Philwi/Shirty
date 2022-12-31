@@ -21,7 +21,7 @@ module Shirty
           def ensure_blueprints(_input)
             blueprints = blueprint_repository.all
 
-            Success({ blueprints: blueprints })
+            Success({ blueprints: })
           end
 
           def get_variants_for_blueprints_print_providers_and_save_them(input)
@@ -29,7 +29,7 @@ module Shirty
 
             variants = create_variants(blueprints)
 
-            Success(input.merge(variants: variants))
+            Success(input.merge(variants:))
           end
 
           def create_variants(blueprints)
@@ -37,8 +37,8 @@ module Shirty
 
             blueprints.includes(:print_providers).each do |blueprint|
               blueprint.print_providers.each do |print_provider|
-                variant = get_variants_for(blueprint: blueprint, print_provider: print_provider)
-                variants << create_variant(variant: variant, blueprint: blueprint, print_provider: print_provider)
+                variant = get_variants_for(blueprint:, print_provider:)
+                variants << create_variant(variant:, blueprint:, print_provider:)
               end
             end
 
@@ -47,19 +47,19 @@ module Shirty
 
           def get_variants_for(blueprint:, print_provider:)
             api.all_for_blueprint_and_print_provider(
-              blueprint: blueprint,
-              print_provider: print_provider
+              blueprint:,
+              print_provider:
             )
           end
 
           def create_variant(variant:, blueprint:, print_provider:)
             return nil if already_existing_variant?(variant['id'].to_i)
 
-            repository.create(variant_attributes: variant, blueprint: blueprint, print_provider: print_provider)
+            repository.create(variant_attributes: variant, blueprint:, print_provider:)
           end
 
           def already_existing_variant?(printify_id)
-            repository.find_by_printify_id(printify_id: printify_id).present?
+            repository.find_by_printify_id(printify_id:).present?
           end
         end
       end

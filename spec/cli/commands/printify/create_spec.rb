@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::Cli::Commands::Printify::Products::Create do
+RSpec.describe Cli::Commands::Printify::Products::Create do
   subject { described_class.new }
 
   before do
@@ -30,6 +30,6 @@ RSpec.describe ::Cli::Commands::Printify::Products::Create do
   end
 
   def stub_product_create_requests
-    ::Printify::ProductFactory.new.create
+    Printify::ProductFactory.new.create
   end
 end

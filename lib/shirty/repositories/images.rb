@@ -3,10 +3,10 @@ module Shirty
     class Images
       def create_with_attributes(image_path:, file_name:, mime_type:, word:, shop:)
         image_entity.create(
-          file_name: file_name,
-          mime_type: mime_type,
-          word: word,
-          shop: shop,
+          file_name:,
+          mime_type:,
+          word:,
+          shop:,
           image_data: { path: image_path }.to_json
         )
       end
@@ -16,11 +16,11 @@ module Shirty
       end
 
       def by_id(id:)
-        image_entity.find_by(id: id)
+        image_entity.find_by(id:)
       end
 
       def find_by(file_name:)
-        image_entity.find_by(file_name: file_name)
+        image_entity.find_by(file_name:)
       end
 
       def delete_all_images

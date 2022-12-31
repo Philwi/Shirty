@@ -23,7 +23,7 @@ module Shirty
 
           def get(input)
             blueprints = api.all
-            Success(input.merge(blueprints: blueprints))
+            Success(input.merge(blueprints:))
           end
 
           def save(input)

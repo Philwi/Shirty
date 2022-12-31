@@ -16,7 +16,7 @@ module Shirty
         end
 
         def find_by_printify_id_and_blueprint(printify_id:, blueprint:)
-          print_provider_entity.find_by(printify_id: printify_id, printify_blueprint_id: blueprint.id)
+          print_provider_entity.find_by(printify_id:, printify_blueprint_id: blueprint.id)
         end
 
         def delete_all_providers

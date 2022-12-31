@@ -2,12 +2,12 @@
 
 require 'spec_helper'
 
-RSpec.describe ::Cli::Commands::Images::Create do
+RSpec.describe Cli::Commands::Images::Create do
   subject { described_class.new }
 
   before do
-    ::Shirty::Repositories::Words.new.create_word_by_name('test')
-    ::ShopFactory.new.create
+    Shirty::Repositories::Words.new.create_word_by_name('test')
+    ShopFactory.new.create
   end
 
   it 'creates images for words' do
@@ -38,7 +38,7 @@ RSpec.describe ::Cli::Commands::Images::Create do
       options = { all: true, text_color: 'white', shop: ShopFactory.new.create }
 
       expect { subject.call(**options) }.to change(image_repository.all, :count).by(1)
-      expect(Shirty::Entities::Image.last.shop).to eq(::Shirty::Repositories::Shops.new.last_created_shop)
+      expect(Shirty::Entities::Image.last.shop).to eq(Shirty::Repositories::Shops.new.last_created_shop)
     end
   end
 

@@ -59,7 +59,7 @@ module Cli
         shop_repository.all_shops.each do |shop|
           ::Cli::Commands::Images::Create.new.call(
             text_color: 'black',
-            shop: shop,
+            shop:,
             **{ all: true }
           )
         end

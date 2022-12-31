@@ -25,18 +25,18 @@ module Shirty
             products = []
 
             blueprint_repository.all.each do |blueprint|
-              products << map_product(blueprint: blueprint, image: image)
+              products << map_product(blueprint:, image:)
             end
 
             if products.present?
-              Success(input.merge({ products: products }))
+              Success(input.merge({ products: }))
             else
               Failure(:no_products_to_create)
             end
           end
 
           def map_product(blueprint:, image:)
-            product_mapper.build(blueprint: blueprint, image: image)
+            product_mapper.build(blueprint:, image:)
           end
 
           def create_products_at_printify(input)

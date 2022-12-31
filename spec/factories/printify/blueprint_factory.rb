@@ -13,8 +13,8 @@ module Printify
       blueprint_response_attributes: default_response_blueprint_attributes
     )
 
-      stub_blueprint_request(blueprint_response_attributes: blueprint_response_attributes)
-      create_blueprint(blueprint_attributes: blueprint_attributes)
+      stub_blueprint_request(blueprint_response_attributes:)
+      create_blueprint(blueprint_attributes:)
     end
 
     private

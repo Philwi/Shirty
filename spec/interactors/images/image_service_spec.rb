@@ -4,15 +4,15 @@ require 'spec_helper'
 
 RSpec.describe Shirty::Interactors::Images::ImageService do
   before do
-    ::Shirty::Repositories::Words.new.create_word_by_name('test')
+    Shirty::Repositories::Words.new.create_word_by_name('test')
   end
 
-  let(:word) { ::Shirty::Repositories::Words.new.last_created_word }
-  let(:shop) { ::ShopFactory.new.create }
+  let(:word) { Shirty::Repositories::Words.new.last_created_word }
+  let(:shop) { ShopFactory.new.create }
   let(:color) { 'white' }
 
   context 'when calling create from word' do
-    subject { described_class.new.create_from_word(word: word, color: color, shop: shop) }
+    subject { described_class.new.create_from_word(word:, color:, shop:) }
 
     context 'text color' do
       it 'create image for word with color' do
@@ -58,7 +58,7 @@ RSpec.describe Shirty::Interactors::Images::ImageService do
   end
 
   context 'when create image from file name' do
-    subject { ::Shirty::Interactors::Images::ImageService.new }
+    subject { Shirty::Interactors::Images::ImageService.new }
 
     context 'when valid filename' do
       before do
@@ -87,6 +87,6 @@ RSpec.describe Shirty::Interactors::Images::ImageService do
   private
 
   def image_repository
-    ::Shirty::Repositories::Images.new
+    Shirty::Repositories::Images.new
   end
 end

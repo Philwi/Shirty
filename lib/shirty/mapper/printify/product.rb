@@ -18,10 +18,10 @@ module Shirty
             description: image.file_name,
             blueprint_id: blueprint.printify_id,
             print_provider_id: print_provider.printify_id,
-            variants: represented_variants(blueprint: blueprint, print_provider: print_provider),
+            variants: represented_variants(blueprint:, print_provider:),
             print_areas: [
               {
-                variant_ids: represented_variants(blueprint: blueprint, print_provider: print_provider).pluck('id'),
+                variant_ids: represented_variants(blueprint:, print_provider:).pluck('id'),
                 placeholders: [
                   {
                     position: 'front',

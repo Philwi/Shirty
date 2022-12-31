@@ -8,8 +8,8 @@ module Shirty
         def all_for_blueprint_and_print_provider(blueprint:, print_provider:)
           Shirty::Http::Printify.new(
             resource_for_blueprint_and_print_provider(
-              blueprint: blueprint,
-              print_provider: print_provider
+              blueprint:,
+              print_provider:
             )
           ).index
         end

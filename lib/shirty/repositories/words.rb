@@ -8,7 +8,7 @@ module Shirty
       end
 
       def create_word_by_name(name)
-        word_entity.find_or_create_by(name: name)
+        word_entity.find_or_create_by(name:)
       end
 
       def not_created_images_from_words
@@ -22,7 +22,7 @@ module Shirty
       end
 
       def find_by_name(name)
-        word_entity.find_by(name: name)
+        word_entity.find_by(name:)
       end
 
       private
