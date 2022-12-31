@@ -10,7 +10,8 @@ module Shirty
             api: 'shirty.http.printify.images',
             repository: 'shirty.repositories.printify.images',
             disk_image_repository: 'shirty.repositories.images',
-            image_mapper: 'shirty.mapper.printify.image'
+            image_mapper: 'shirty.mapper.printify.image',
+            image_service: 'shirty.interactors.images.image_service'
           ]
 
           step :sync_from_printify
@@ -21,9 +22,10 @@ module Shirty
 
           def sync_from_printify(_input)
             images = api.all
+            images_data = images['data']
 
             if images.present?
-              Success(images: images['data'])
+              Success(images: images_data)
             else
               Failure(:images_not_found)
             end
@@ -54,13 +56,15 @@ module Shirty
 
               disk_image = disk_image_repository.find_by(file_name: image['file_name'])
               disk_image = create_disk_image(image['file_name']) if disk_image.blank?
-              disk_image.printify_image = printify_image
+              disk_image.printify_images = printify_image
               disk_image.save
             end
+
+            Success(:images_synced)
           end
 
           def create_disk_image(file_name)
-            # call interactor with file name to create disk image
+            image_service.create_from_file_name(file_name).success
           end
         end
       end

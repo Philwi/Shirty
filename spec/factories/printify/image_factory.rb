@@ -49,7 +49,7 @@ module Printify
         'data' => [
           {
             'id' => '5e16d66791287a0006e522b2',
-            'file_name' => 'png-images-logo-1.jpg',
+            'file_name' => 'I Hate_Foo_black.png',
             'height' => 5979,
             'width' => 17_045,
             'size' => 1_138_575,
@@ -59,7 +59,7 @@ module Printify
           },
           {
             'id' => '5de50bf612c348000892b366',
-            'file_name' => 'png-images-logo-2.jpg',
+            'file_name' => 'I Hate_Foo_black.png',
             'height' => 360,
             'width' => 360,
             'size' => 19_589,

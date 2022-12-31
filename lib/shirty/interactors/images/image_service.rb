@@ -25,6 +25,7 @@ module Shirty
         end
 
         # TODO: delegete from file and from word creation to own class
+        # Maybe we could use TemplateMethod?
         def create_from_file_name(file_name)
           @shop = shop_from_file_name(file_name)
           @word = word_from_file_name(file_name)
@@ -98,11 +99,11 @@ module Shirty
         def create_image
           result =
             images.create_with_attributes(
-              image_path: image_path,
-              file_name: file_name,
+              image_path:,
+              file_name:,
               mime_type: 'image/png',
-              word: word,
-              shop: shop
+              word:,
+              shop:
             )
 
           result ? Success(result) : Failure(:image_not_created)

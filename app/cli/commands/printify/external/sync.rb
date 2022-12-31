@@ -27,6 +27,7 @@ module Cli
               sync_all_blueprints
               sync_all_print_providers
               sync_all_variants
+              sync_all_images
             when 'blueprints'
               sync_all_blueprints
             when 'print_providers'
@@ -73,6 +74,10 @@ module Cli
               message = "Not synced: #{result.failure}"
               logger.call(message, color: :red)
             end
+          end
+
+          def sync_all_images
+            ::Cli::Commands::Printify::Images::Sync.new.call
           end
         end
       end
