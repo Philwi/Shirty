@@ -6,9 +6,28 @@ services:
       - 5432:5432
     environment:
       - PGDATA=/postgresql
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_USER=${DATABASE_USER}
     volumes:
       - db-volume:/postgresql
+  cli:
+    ports:
+      - "8000:3000"
+    depends_on:
+      - postgresql
+    image: cli_image
+    environment:
+      - MAX_THREADS=${MAX_THREADS}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_HOST=postgresql
+
+    build:
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/cli
 volumes:
   db-volume:
+

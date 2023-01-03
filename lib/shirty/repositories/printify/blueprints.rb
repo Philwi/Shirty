@@ -12,7 +12,7 @@ module Shirty
             title: blueprint_attributes['title'],
             brand: blueprint_attributes['brand'],
             model: blueprint_attributes['model'],
-            images: blueprint_attributes['images'],
+            images: parsed_images_array(blueprint_attributes['images']),
             description: blueprint_attributes['description']
           )
         end
@@ -25,6 +25,14 @@ module Shirty
 
         def blueprint_entity
           ::Shirty::Entities::Printify::Blueprint
+        end
+
+        def parsed_images_array(images)
+          return images if images.is_a?(Array)
+
+          images.map { |_, image| image } if images.is_a?(Hash)
+
+          []
         end
       end
     end
