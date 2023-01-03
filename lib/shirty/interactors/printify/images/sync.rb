@@ -32,7 +32,7 @@ module Shirty
           end
 
           def exclude_duplicates(input)
-            images_to_persist = persistable_images(input[:images])
+            images_to_persist = input[:images].present? ? persistable_images(input[:images]) : []
 
             if images_to_persist.present?
               Success(persistable_images: images_to_persist)

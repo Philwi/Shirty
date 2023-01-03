@@ -4,7 +4,7 @@ module Shirty
   module Http
     class << self
       def get(url, headers: {}, params: {})
-        HTTParty.get(url, headers:, params:)
+        HTTParty.get(url, headers:, query: params)
       end
 
       def post(url, headers: {}, body: {})

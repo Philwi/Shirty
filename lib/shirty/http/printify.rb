@@ -13,7 +13,7 @@ module Shirty
       end
 
       def index(params: {})
-        http_client.get(request_url, headers:, params:)
+        paginate_all_possible_entries(params:)
       end
 
       def create(body: {})
@@ -34,6 +34,36 @@ module Shirty
         api_key = ENV.fetch('PRINTIFY_API_TOKEN')
 
         { 'Authorization' => "Bearer #{api_key}" }
+      end
+
+      ENTRIES_PER_PAGE = 100
+
+      def paginate_all_possible_entries(params:)
+        params_with_limit = params.deep_dup.merge('limit' => ENTRIES_PER_PAGE)
+        response = fetch(params: params_with_limit)
+
+        return response unless response.respond_to?(:keys)
+        return response if response['total'] < ENTRIES_PER_PAGE
+
+        result = loop_over_pages(params: params_with_limit, data: response['data'], total: response['total'])
+        { 'data' => result }
+      end
+
+      def loop_over_pages(params:, data:, total:)
+        result = data
+        page = 1
+
+        while result.count < total
+          page += 1
+          response = fetch(params: params.merge('page' => page))
+          result << response['data']
+        end
+
+        result
+      end
+
+      def fetch(params:)
+        http_client.get(request_url, headers:, params:)
       end
     end
   end
